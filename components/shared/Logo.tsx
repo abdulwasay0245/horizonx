@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 export default function Logo() {
   return (
-    <Link href="/" className="text-2xl font-black text-white tracking-tight">
-      Horizon<span className="text-blue-500">X</span>
-    </Link>
+    <div className="text-xl font-bold tracking-tight text-[#F0F0FF] flex items-baseline">
+      Horizon<span className="text-[#6C63FF]">X</span>
+    </div>
   )
 }

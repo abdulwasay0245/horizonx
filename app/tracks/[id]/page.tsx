@@ -2,8 +2,11 @@ import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import EnrollButton from '@/components/tracks/EnrollButton'
 import TaskList from '@/components/tracks/TaskList'
+import Link from 'next/link'
+import { Award, Target, ArrowLeft } from 'lucide-react'
 
-export default async function TrackDetailPage({ params }: { params: { id: string } }) {
+export default async function TrackDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const supabase = await createClient()
 
   const { data: { user } } = await supabase.auth.getUser()
@@ -12,7 +15,7 @@ export default async function TrackDetailPage({ params }: { params: { id: string
   const { data: track } = await supabase
     .from('tracks')
     .select('*, fields(*)')
-    .eq('id', params.id)
+    .eq('id', id)
     .single()
 
   if (!track) redirect('/tracks')
@@ -20,19 +23,19 @@ export default async function TrackDetailPage({ params }: { params: { id: string
   const { data: tasks } = await supabase
     .from('tasks')
     .select('*')
-    .eq('track_id', params.id)
+    .eq('track_id', id)
     .order('order_number', { ascending: true })
 
   const { data: enrollment } = await supabase
     .from('enrollments')
     .select('id')
     .eq('user_id', user.id)
-    .eq('track_id', params.id)
+    .eq('track_id', id)
     .single()
 
   const isEnrolled = !!enrollment
-
   const taskIds = tasks?.map(t => t.id) || []
+
   const { data: submissions } = await supabase
     .from('submissions')
     .select('task_id')
@@ -49,71 +52,80 @@ export default async function TrackDetailPage({ params }: { params: { id: string
     .from('test_attempts')
     .select('id, passed, score')
     .eq('user_id', user.id)
-    .eq('track_id', params.id)
+    .eq('track_id', id)
     .eq('passed', true)
     .single()
 
-  const levelColor: Record<string, string> = {
-    beginner: 'bg-green-500/20 text-green-400',
-    intermediate: 'bg-yellow-500/20 text-yellow-400',
-    advanced: 'bg-red-500/20 text-red-400',
-  }
-
   return (
-    <div className="max-w-3xl">
-      <div className="mb-8">
-        <div className="flex items-center gap-3 mb-3">
-          <h2 className="text-3xl font-black text-white">{track.fields?.name}</h2>
-          <span className={`text-xs font-medium px-2 py-0.5 rounded-full capitalize ${levelColor[track.level]}`}>
-            {track.level}
+    <div className="max-w-4xl mx-auto py-8 lg:py-12 px-6">
+      <Link href="/tracks" className="inline-flex items-center gap-2 text-sm font-semibold text-[#9090A8] hover:text-[#F0F0FF] transition-colors mb-8">
+        <ArrowLeft size={16} /> Directory
+      </Link>
+
+      <div className="mb-12 border-b border-[#242430] pb-8">
+        <div className="flex flex-wrap items-center gap-4 mb-4">
+          <h2 className="text-3xl md:text-4xl font-black text-[#F0F0FF] tracking-tight">{track.fields?.name}</h2>
+          <span className={`badge-${track.level.toLowerCase()}`}>
+            {track.level} Spec
           </span>
         </div>
-        <p className="text-gray-400">{track.description}</p>
+        <p className="text-[#9090A8] text-lg leading-relaxed max-w-2xl">{track.description}</p>
       </div>
 
       {isEnrolled && (
-        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 mb-6">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-white font-bold">Your Progress</span>
-            <span className="text-blue-400 font-black">{progress}%</span>
+        <div className="vercel-card mb-10 overflow-hidden relative group border-[#6C63FF]/20 shadow-[0_0_15px_rgba(108,99,255,0.05)]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-6 border-b border-[#242430]">
+            <div>
+              <span className="text-[#F0F0FF] font-semibold text-lg tracking-tight block mb-1">Execution Status</span>
+              <span className="text-[#5A5A70] font-mono text-[10px] uppercase tracking-widest font-bold">
+                {completedCount} / {totalCount} tasks completed
+              </span>
+            </div>
+            <span className="text-5xl font-black font-mono text-[#6C63FF] tracking-tighter mt-4 sm:mt-0">
+               {progress}%
+            </span>
           </div>
-          <div className="w-full bg-gray-800 rounded-full h-3 mb-2">
+          
+          <div className="w-full bg-[#1A1A24] rounded-full h-1.5 mb-8 overflow-hidden">
             <div
-              className="bg-blue-500 h-3 rounded-full transition-all"
+              className="bg-gradient-to-r from-[#6C63FF] to-[#00D4FF] h-full rounded-full transition-all duration-1000 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>
-          <p className="text-gray-400 text-sm">{completedCount} of {totalCount} tasks completed</p>
 
           {allTasksDone && !testAttempt && (
-            <a
-              href={`/tracks/${params.id}/test`}
-              className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition text-center block"
+            <Link
+              href={`/tracks/${id}/test`}
+              className="btn-primary w-full flex justify-center items-center gap-2 glow-primary"
             >
-              🎯 Take the Final Test
-            </a>
+              <Target size={18} /> Initiate Final Evaluation
+            </Link>
           )}
 
           {testAttempt && (
-            <div className="mt-4 bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4 text-center">
-              <p className="text-yellow-400 font-bold">✅ Test Passed — Score: {testAttempt.score}%</p>
-              <a href="/dashboard/certificates" className="text-blue-400 text-sm hover:underline">
-                View Certificate →
-              </a>
+            <div className="mt-8 bg-[#00C896]/5 border border-[#00C896]/20 rounded-xl p-6 relative flex flex-col items-center">
+              <div className="w-12 h-12 bg-[#00C896]/10 rounded-full flex items-center justify-center text-[#00C896] shadow-sm mb-4">
+                 <Award size={24} />
+              </div>
+              <p className="text-[#00C896] font-semibold text-lg mb-1">Evaluation Passed</p>
+              <p className="text-[#9090A8] text-sm mb-6">Final Metric: <span className="font-mono text-[#F0F0FF] font-bold">{testAttempt.score}%</span></p>
+              <Link href="/dashboard/certificates" className="btn-secondary px-6 py-2 text-sm text-[#F0F0FF]">
+                Examine Documentation
+              </Link>
             </div>
           )}
         </div>
       )}
 
       {!isEnrolled && (
-        <EnrollButton trackId={params.id} />
+        <EnrollButton trackId={id} />
       )}
 
       <TaskList
         tasks={tasks || []}
         completedTaskIds={completedTaskIds}
         isEnrolled={isEnrolled}
-        trackId={params.id}
+        trackId={id}
       />
     </div>
   )

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
+import { Server } from 'lucide-react'
 
 export default function EnrollButton({ trackId }: { trackId: string }) {
   const [loading, setLoading] = useState(false)
@@ -19,6 +20,17 @@ export default function EnrollButton({ trackId }: { trackId: string }) {
       track_id: trackId
     })
 
+    // Send enrollment email (fire-and-forget)
+    fetch('/api/email/enrollment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: user.email,
+        name: user.user_metadata?.name || 'Candidate',
+        trackName: 'authorized specification track',
+      }),
+    }).catch(() => {})
+
     router.refresh()
     setLoading(false)
   }
@@ -27,9 +39,10 @@ export default function EnrollButton({ trackId }: { trackId: string }) {
     <button
       onClick={handleEnroll}
       disabled={loading}
-      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition mb-6 disabled:opacity-50 text-lg"
+      className="btn-primary w-full py-4 mb-10 text-lg flex items-center justify-center gap-3 glow-primary"
     >
-      {loading ? 'Enrolling...' : '🚀 Enroll in this Track'}
+      <Server size={20} />
+      {loading ? 'Initializing Environment...' : 'Deploy Track Instance'}
     </button>
   )
 }

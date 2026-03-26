@@ -1,20 +1,18 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
+import { LayoutTemplate, Server, Paintbrush, BarChart, PenTool, Megaphone, BookOpen } from 'lucide-react'
 
-const levelColor: Record<string, string> = {
-  beginner: 'bg-green-500/20 text-green-400',
-  intermediate: 'bg-yellow-500/20 text-yellow-400',
-  advanced: 'bg-red-500/20 text-red-400',
-}
-
-const fieldIcons: Record<string, string> = {
-  'Frontend Development': '🖥️',
-  'Backend Development': '⚙️',
-  'UI/UX Design': '🎨',
-  'Data Analysis': '📊',
-  'Content Writing': '✍️',
-  'Digital Marketing': '📣',
+// Map of field names to Lucide icons
+const getFieldIcon = (name: string) => {
+  if (!name) return <BookOpen size={24} className="text-[#F0F0FF]" />
+  if (name.includes('Frontend')) return <LayoutTemplate size={24} className="text-[#F0F0FF]" />
+  if (name.includes('Backend')) return <Server size={24} className="text-[#F0F0FF]" />
+  if (name.includes('Design')) return <Paintbrush size={24} className="text-[#F0F0FF]" />
+  if (name.includes('Data')) return <BarChart size={24} className="text-[#F0F0FF]" />
+  if (name.includes('Writing')) return <PenTool size={24} className="text-[#F0F0FF]" />
+  if (name.includes('Marketing')) return <Megaphone size={24} className="text-[#F0F0FF]" />
+  return <BookOpen size={24} className="text-[#F0F0FF]" />
 }
 
 export default async function TracksPage() {
@@ -23,14 +21,12 @@ export default async function TracksPage() {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/login')
 
-  // Get all active tracks with field info
   const { data: tracks } = await supabase
     .from('tracks')
     .select('*, fields(*)')
     .eq('is_active', true)
     .order('created_at', { ascending: true })
 
-  // Get user's enrollments
   const { data: enrollments } = await supabase
     .from('enrollments')
     .select('track_id')
@@ -39,55 +35,66 @@ export default async function TracksPage() {
   const enrolledTrackIds = enrollments?.map(e => e.track_id) || []
 
   return (
-    <div>
-      {/* Header */}
-      <div className="mb-8">
-        <h2 className="text-3xl font-black text-white">Browse Tracks</h2>
-        <p className="text-gray-400 mt-1">Choose a field and level to get started</p>
+    <div className="max-w-6xl mx-auto py-8 lg:py-12 px-6">
+      <div className="mb-12 border-b border-[#242430] pb-8">
+        <h2 className="text-3xl font-black text-[#F0F0FF] tracking-tight mb-2">Curriculum Repository</h2>
+        <p className="text-[#9090A8] text-sm">Select a domain and initialize a module to start building verifiable skills.</p>
       </div>
 
-      {/* Tracks Grid */}
       {tracks && tracks.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tracks.map((track) => {
             const isEnrolled = enrolledTrackIds.includes(track.id)
             return (
-              <div key={track.id} className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-blue-500/40 transition">
-                <div className="text-3xl mb-3">
-                  {fieldIcons[track.fields?.name] || '📚'}
+              <div key={track.id} className="vercel-card flex flex-col h-full hover:border-[#6C63FF]/50 transition-colors">
+                <div className="w-12 h-12 bg-[#1A1A24] rounded-xl flex items-center justify-center mb-6 border border-[#242430]">
+                  {getFieldIcon(track.fields?.name)}
                 </div>
-                <div className="flex items-center gap-2 mb-2">
-                  <h4 className="text-white font-bold">{track.fields?.name}</h4>
+                
+                <h4 className="text-[#F0F0FF] text-lg font-semibold tracking-tight mb-3">
+                   {track.fields?.name}
+                </h4>
+                
+                <div className="mb-4">
+                  <span className={`badge-${track.level.toLowerCase()}`}>
+                    {track.level}
+                  </span>
                 </div>
-                <span className={`text-xs font-medium px-2 py-0.5 rounded-full capitalize ${levelColor[track.level]}`}>
-                  {track.level}
-                </span>
-                <p className="text-gray-400 text-sm mt-3 mb-6">{track.description}</p>
+                
+                <p className="text-[#9090A8] text-sm leading-relaxed mb-8 flex-1">
+                   {track.description}
+                </p>
 
-                {isEnrolled ? (
-                  <Link
-                    href={`/tracks/${track.id}`}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition text-center block"
-                  >
-                    Continue →
-                  </Link>
-                ) : (
-                  <Link
-                    href={`/tracks/${track.id}`}
-                    className="w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 rounded-xl transition text-center block"
-                  >
-                    View Track
-                  </Link>
-                )}
+                <div className="mt-auto pt-6 border-t border-[#242430]">
+                   {isEnrolled ? (
+                     <Link
+                       href={`/tracks/${track.id}`}
+                       className="btn-primary w-full flex justify-center py-2 text-sm"
+                     >
+                       Resume Protocol
+                     </Link>
+                   ) : (
+                     <Link
+                       href={`/tracks/${track.id}`}
+                       className="btn-secondary w-full flex justify-center py-2 text-sm text-[#F0F0FF] font-semibold"
+                     >
+                       Examine Spec
+                     </Link>
+                   )}
+                </div>
               </div>
             )
           })}
         </div>
       ) : (
-        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-12 text-center">
-          <div className="text-4xl mb-3">📚</div>
-          <h4 className="text-white font-bold mb-2">No tracks available yet</h4>
-          <p className="text-gray-400 text-sm">Check back soon — we're adding more tracks!</p>
+        <div className="vercel-card text-center !py-16 border-dashed bg-transparent shadow-none flex flex-col items-center">
+          <div className="w-12 h-12 bg-[#1A1A24] border border-[#242430] rounded-xl flex items-center justify-center mb-6 text-[#5A5A70]">
+             <BookOpen size={24} />
+          </div>
+          <h4 className="text-[#F0F0FF] font-semibold mb-2">No domains discovered</h4>
+          <p className="text-[#5A5A70] text-sm mb-6 max-w-sm mx-auto">
+            Check back later. Our principal engineers are currently crafting premium execution matrices.
+          </p>
         </div>
       )}
     </div>
