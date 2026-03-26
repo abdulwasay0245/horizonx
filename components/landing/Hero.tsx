@@ -20,7 +20,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-[#9090A8] text-lg max-w-lg mb-10">
-            Execute real-world technical assignments, pass rigorous evaluations, and generate cryptographic technical audits directly synchronized with your professional profile.
+           Complete real-world tasks, pass skill assessments, and earn verified certificates linked to your professional profile.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10">
