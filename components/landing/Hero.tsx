@@ -40,9 +40,8 @@ export default function Hero() {
           </div>
 
           <div className="flex items-center gap-4 text-[#5A5A70] font-mono text-[11px] uppercase tracking-wider">
-             <span>2,400+ Students</span>
              <span className="w-px h-3 bg-[#242430]" />
-             <span>12 Tracks</span>
+             <span>6 Domains already available</span>
              <span className="w-px h-3 bg-[#242430]" />
              <span>Free Forever</span>
           </div>
