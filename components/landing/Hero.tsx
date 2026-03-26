@@ -60,7 +60,7 @@ export default function Hero() {
               
               <div className="mb-8">
                  <p className="font-semibold uppercase tracking-[0.08em] text-[#5A5A70] text-[10px] mb-6">Technical Execution Record</p>
-                 <h3 className="text-2xl font-bold text-white mb-2 leading-tight">Sarah Chen</h3>
+                 <h3 className="text-2xl font-bold text-white mb-2 leading-tight">Rao Noman</h3>
                  <span className="badge-advanced">Frontend Architecture</span>
               </div>
 
