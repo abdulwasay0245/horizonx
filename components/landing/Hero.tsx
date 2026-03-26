@@ -71,7 +71,7 @@ export default function Hero() {
                  </div>
                  <div className="text-right">
                     <p className="text-[#5A5A70] font-mono text-[10px] uppercase mb-1">Passed On</p>
-                    <p className="font-mono text-sm text-[#F0F0FF]">Oct 24, 2026</p>
+                    <p className="font-mono text-sm text-[#F0F0FF]">Jan 24, 2026</p>
                  </div>
               </div>
 
