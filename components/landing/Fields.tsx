@@ -2,11 +2,11 @@ import { LayoutTemplate, Server, Paintbrush, BarChart, PenTool, Megaphone } from
 
 const fields = [
   { name: 'Frontend Architecture', desc: 'HTML, CSS, JavaScript, React interfaces', icon: <LayoutTemplate size={32} className="text-[#F0F0FF]" />, available: true },
-  { name: 'Backend Systems', desc: 'Node.js, REST APIs, Databases', icon: <Server size={32} className="text-[#F0F0FF]" />, available: false },
-  { name: 'Interface Design', desc: 'Figma grids, wireframes, prototypes', icon: <Paintbrush size={32} className="text-[#F0F0FF]" />, available: false },
-  { name: 'Data Engineering', desc: 'SQL structures, Excel, Python scripting', icon: <BarChart size={32} className="text-[#F0F0FF]" />, available: false },
-  { name: 'Technical Writing', desc: 'Documentation, Copywriting, SEO', icon: <PenTool size={32} className="text-[#F0F0FF]" />, available: false },
-  { name: 'Growth Marketing', desc: 'Analytics, Ads, Distribution workflows', icon: <Megaphone size={32} className="text-[#F0F0FF]" />, available: false },
+  { name: 'Backend Systems', desc: 'Node.js, REST APIs, Databases', icon: <Server size={32} className="text-[#F0F0FF]" />, available: true },
+  { name: 'Interface Design', desc: 'Figma grids, wireframes, prototypes', icon: <Paintbrush size={32} className="text-[#F0F0FF]" />, available: true },
+  { name: 'Data Engineering', desc: 'SQL structures, Excel, Python scripting', icon: <BarChart size={32} className="text-[#F0F0FF]" />, available: true },
+  { name: 'Technical Writing', desc: 'Documentation, Copywriting, SEO', icon: <PenTool size={32} className="text-[#F0F0FF]" />, available: true },
+  { name: 'Growth Marketing', desc: 'Analytics, Ads, Distribution workflows', icon: <Megaphone size={32} className="text-[#F0F0FF]" />, available: true },
 ]
 
 export default function Fields() {
