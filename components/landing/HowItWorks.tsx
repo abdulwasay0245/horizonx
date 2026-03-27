@@ -1,20 +1,20 @@
 import { User, Target, Zap, FileText, TerminalSquare } from 'lucide-react'
 
 const steps = [
-  { step: '01', title: 'Sign Up', desc: 'Initialize your free account in 30 seconds.', icon: <User size={24} className="text-[#6C63FF]" /> },
-  { step: '02', title: 'Pick a Track', desc: 'Select a domain and difficulty parameter.', icon: <Target size={24} className="text-[#6C63FF]" /> },
-  { step: '03', title: 'Execute Tasks', desc: 'Resolve real-world technical assignments.', icon: <Zap size={24} className="text-[#6C63FF]" /> },
-  { step: '04', title: 'Pass Evaluation', desc: '20 rigorous MCQ questions to verify proficiency.', icon: <FileText size={24} className="text-[#6C63FF]" /> },
-  { step: '05', title: 'Verify Skills', desc: 'Mint a cryptographic audit record with your telemetry.', icon: <TerminalSquare size={24} className="text-[#6C63FF]" /> },
+  { step: '01', title: 'Sign Up', desc: 'Create your free account in 30 seconds.', icon: <User size={24} className="text-[#6C63FF]" /> },
+  { step: '02', title: 'Pick a Track', desc: 'Pick a topic you want to learn.', icon: <Target size={24} className="text-[#6C63FF]" /> },
+  { step: '03', title: 'Complete Tasks', desc: 'Complete hands-on tasks at your own pace.', icon: <Zap size={24} className="text-[#6C63FF]" /> },
+  { step: '04', title: 'Take the Quiz', desc: 'Answer 20 questions to test your knowledge.', icon: <FileText size={24} className="text-[#6C63FF]" /> },
+  { step: '05', title: 'Earn Your Badge', desc: 'Earn a verified skill badge for your profile.', icon: <TerminalSquare size={24} className="text-[#6C63FF]" /> },
 ]
 
 export default function HowItWorks() {
   return (
     <section id="how-it-works" className="px-6 py-24 md:py-32 max-w-6xl mx-auto bg-[#0A0A0F]">
       <div className="text-center mb-16">
-        <h2 className="mb-4">Operational Workflow</h2>
+        <h2 className="mb-4">How It Works</h2>
         <p className="text-[#9090A8] text-lg max-w-xl mx-auto">
-          Five deterministic steps to prove your technical capabilities.
+          Five simple steps to prove your skills.
         </p>
       </div>
       

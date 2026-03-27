@@ -11,7 +11,7 @@ const links = [
   { href: '/dashboard', label: 'Dashboard', icon: <Home size={18} /> },
   { href: '/tracks', label: 'Browse Tracks', icon: <Compass size={18} /> },
   { href: '/dashboard/submissions', label: 'My Submissions', icon: <Inbox size={18} /> },
-  { href: '/dashboard/certificates', label: 'Verification Matrix', icon: <ShieldCheck size={18} /> },
+  { href: '/dashboard/certificates', label: 'My Badges', icon: <ShieldCheck size={18} /> },
   { href: '/dashboard/profile', label: 'My Profile', icon: <User size={18} /> },
 ]
 

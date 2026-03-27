@@ -39,13 +39,13 @@ export default async function ResultPage({
             <div className="w-28 h-28 bg-gradient-to-br from-amber-400 to-amber-600 rounded-3xl flex items-center justify-center text-6xl mx-auto mb-8 shadow-xl shadow-amber-500/20 border-4 border-white dark:border-slate-800 animate-bounce-slow">
               🏆
             </div>
-            <h2 className="text-4xl font-black text-foreground tracking-tight mb-4 leading-tight">Certification Earned!</h2>
+            <h2 className="text-4xl font-black text-foreground tracking-tight mb-4 leading-tight">You Passed! 🎉</h2>
             <p className="text-slate-500 dark:text-slate-400 mb-8 font-medium text-lg leading-relaxed">
-              Congratulations on mastering the material and verifying your skills.
+              Congratulations! You've proven your skills in this track.
             </p>
             
             <div className="bg-amber-50 dark:bg-amber-500/10 border border-amber-500/20 rounded-2xl p-8 mb-10 shadow-inner">
-               <p className="text-amber-600/60 dark:text-amber-400/60 font-bold uppercase tracking-widest text-xs mb-2">Final Assessed Score</p>
+               <p className="text-amber-600/60 dark:text-amber-400/60 font-bold uppercase tracking-widest text-xs mb-2">Your Score</p>
                <div className="text-6xl md:text-7xl font-black text-amber-500 tracking-tighter">{scoreNum}%</div>
             </div>
             
@@ -55,14 +55,14 @@ export default async function ResultPage({
                   href={`/certificate/${certificate.id}`}
                   className="glass-button w-full shadow-lg shadow-amber-500/20 !py-4 text-lg bg-amber-500 hover:bg-amber-600 border-amber-400 flex items-center justify-center gap-2 group"
                 >
-                  <span className="group-hover:scale-110 transition-transform">🎓</span> View Official Certificate
+                  <span className="group-hover:scale-110 transition-transform">🎓</span> View My Badge
                 </Link>
               )}
               <Link
                 href="/tracks"
                 className="glass-button-outline w-full !py-4 text-lg"
               >
-                Return to Track Hub
+                Browse All Tracks
               </Link>
             </div>
           </>
@@ -71,8 +71,8 @@ export default async function ResultPage({
             <div className="w-24 h-24 bg-rose-50 dark:bg-rose-500/10 text-rose-500 dark:text-rose-400 rounded-3xl flex items-center justify-center text-5xl mx-auto mb-8 border border-rose-500/20 shadow-sm">
               😔
             </div>
-            <h2 className="text-3xl font-black text-foreground tracking-tight mb-4">Exam Not Passed</h2>
-            <p className="text-slate-500 dark:text-slate-400 mb-8 font-medium">A minimum score of 50% is required for certification. Take some time to review the material.</p>
+            <h2 className="text-3xl font-black text-foreground tracking-tight mb-4">Not Quite — Try Again</h2>
+            <p className="text-slate-500 dark:text-slate-400 mb-8 font-medium">You need at least 50% to pass. Review the material and try again.</p>
             
             <div className="bg-slate-100 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/50 rounded-2xl p-8 mb-8">
                <p className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest text-xs mb-2">Your Score</p>
@@ -91,7 +91,7 @@ export default async function ResultPage({
               href={`/tracks/${id}`}
               className="glass-button-outline w-full !py-4 text-lg flex items-center justify-center gap-2"
             >
-              ← Back to Track Material
+              ← Back to Track
             </Link>
           </>
         )}

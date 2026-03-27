@@ -27,7 +27,7 @@ export default function EnrollButton({ trackId }: { trackId: string }) {
       body: JSON.stringify({
         email: user.email,
         name: user.user_metadata?.name || 'Candidate',
-        trackName: 'authorized specification track',
+        trackName: 'this track',
       }),
     }).catch(() => {})
 
@@ -42,7 +42,7 @@ export default function EnrollButton({ trackId }: { trackId: string }) {
       className="btn-primary w-full py-4 mb-10 text-lg flex items-center justify-center gap-3 glow-primary"
     >
       <Server size={20} />
-      {loading ? 'Initializing Environment...' : 'Deploy Track Instance'}
+      {loading ? 'Enrolling...' : 'Enroll in This Track'}
     </button>
   )
 }

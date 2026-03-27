@@ -70,7 +70,7 @@ export default async function DashboardPage() {
           Overview
         </h2>
         <p className="text-[#9090A8] text-sm">
-          Welcome back, <span className="text-[#F0F0FF] font-semibold">{profile?.name?.split(' ')[0]}</span>. Your telemetry is below.
+          Welcome back, <span className="text-[#F0F0FF] font-semibold">{profile?.name?.split(' ')[0]}</span>. Here's your progress so far.
         </p>
       </div>
 
@@ -85,7 +85,7 @@ export default async function DashboardPage() {
       {/* Active Tracks */}
       <div className="mb-16">
         <div className="flex items-center justify-between mb-6">
-           <h3 className="text-lg font-semibold text-[#F0F0FF] tracking-tight">Active Deployments</h3>
+           <h3 className="text-lg font-semibold text-[#F0F0FF] tracking-tight">My Active Tracks</h3>
            <Link href="/tracks" className="text-sm font-semibold text-[#9090A8] hover:text-[#F0F0FF] transition-colors flex items-center gap-1">
               Browse all <ArrowRight size={14} />
            </Link>
@@ -98,7 +98,7 @@ export default async function DashboardPage() {
             </div>
             <h4 className="text-[#F0F0FF] font-semibold mb-2">No active tracks</h4>
             <p className="text-[#5A5A70] text-sm mb-6 max-w-sm mx-auto">
-               Initialize your first track to begin executing technical workflows.
+               Enroll in your first track to start learning.
             </p>
             <Link href="/tracks" className="btn-secondary text-sm px-6 py-2">
               Browse Tracks
@@ -125,7 +125,7 @@ export default async function DashboardPage() {
       {certificates && certificates.length > 0 && (
         <div className="mb-12">
           <div className="flex items-center justify-between mb-6">
-             <h3 className="text-lg font-semibold text-[#F0F0FF] tracking-tight">Verified Technical Audits</h3>
+             <h3 className="text-lg font-semibold text-[#F0F0FF] tracking-tight">My Skill Badges</h3>
              <Link href="/dashboard/certificates" className="text-sm font-semibold text-[#9090A8] hover:text-[#F0F0FF] transition-colors flex items-center gap-1">
                 View all <ArrowRight size={14} />
              </Link>
@@ -142,7 +142,7 @@ export default async function DashboardPage() {
                      <span className="text-[#6C63FF] font-black font-mono text-3xl tracking-tighter">{cert.score}%</span>
                   </div>
                   <h4 className="text-[#F0F0FF] font-semibold mb-1 truncate text-lg">
-                     Telemetry Record
+                     Skill Badge
                   </h4>
                   <p className="text-[#5A5A70] font-mono uppercase text-[10px] tracking-[0.08em] font-bold mb-6">
                     Issued {new Date(cert.issued_at).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}
@@ -153,7 +153,7 @@ export default async function DashboardPage() {
                   className="w-full flex flex-col"
                 >
                   <button className="btn-secondary w-full py-2 flex items-center justify-center gap-2 text-sm group-hover:border-[#6C63FF] group-hover:text-[#F0F0FF]">
-                    Examine Record <ArrowRight size={16} />
+                    View Badge <ArrowRight size={16} />
                   </button>
                 </Link>
               </div>

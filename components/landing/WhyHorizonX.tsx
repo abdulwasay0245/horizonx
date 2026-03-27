@@ -1,10 +1,10 @@
 import { ShieldCheck, Crosshair, Share2, Eye } from 'lucide-react'
 
 const reasons = [
-  { title: 'Zero Cost', desc: 'No paywalls. No subscriptions. Unrestricted access forever.', icon: <ShieldCheck size={28} className="text-[#F0F0FF]" /> },
-  { title: 'Strict Metrics', desc: 'Verification audits display your exact telemetry score, not just a simple completion badge.', icon: <Crosshair size={28} className="text-[#F0F0FF]" /> },
-  { title: 'Oauth Verification', desc: 'Single-click frictionless export of credentials to LinkedIn matrices.', icon: <Share2 size={28} className="text-[#F0F0FF]" /> },
-  { title: 'Public Directory', desc: 'Hosted unique profiles serving as a direct portfolio terminal for recruiters.', icon: <Eye size={28} className="text-[#F0F0FF]" /> },
+  { title: 'Zero Cost', desc: 'No paywalls. No subscriptions. Free forever.', icon: <ShieldCheck size={28} className="text-[#F0F0FF]" /> },
+  { title: 'Real Results', desc: 'Your profile shows your actual score, not just a pass/fail badge.', icon: <Crosshair size={28} className="text-[#F0F0FF]" /> },
+  { title: 'Easy Sharing', desc: 'Share your achievements on LinkedIn with one click.', icon: <Share2 size={28} className="text-[#F0F0FF]" /> },
+  { title: 'Public Profile', desc: 'Your profile is public so recruiters can find and verify your skills.', icon: <Eye size={28} className="text-[#F0F0FF]" /> },
 ]
 
 export default function WhyHorizonX() {
@@ -13,7 +13,7 @@ export default function WhyHorizonX() {
       <div className="text-center mb-16">
         <h2 className="mb-4">Why HorizonX?</h2>
         <p className="text-[#9090A8] text-lg max-w-xl mx-auto">
-          Engineered specifically for candidates who need verifiable proof of work.
+          Built for people who want to show what they can actually do.
         </p>
       </div>
       

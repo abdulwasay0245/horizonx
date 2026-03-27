@@ -20,9 +20,9 @@ export default function Testimonials() {
   return (
     <section className="px-6 py-16 md:py-24 max-w-6xl mx-auto">
       <div className="text-center mb-16">
-        <h2 className="mb-4">Engineer Feedback</h2>
+        <h2 className="mb-4">What People Are Saying</h2>
         <p className="text-[#9090A8] text-lg max-w-xl mx-auto">
-          Read what developers and analysts say about their real-world outcomes.
+          Hear from people who've already verified their skills.
         </p>
       </div>
 

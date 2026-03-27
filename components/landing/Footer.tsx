@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex flex-col items-start gap-3">
           <Logo />
           <p className="text-[#5A5A70] text-sm max-w-xs">
-            A precise skill assessment terminal enabling candidates to prove capabilities through verifiable cryptographic validation.
+            A skill verification platform that helps you prove what you know.
           </p>
         </div>
         
@@ -24,10 +24,10 @@ export default function Footer() {
       
       <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-[#242430] flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-[#5A5A70] font-mono text-[11px] uppercase tracking-widest text-center md:text-left">
-          © {new Date().getFullYear()} HorizonX. All systems nominal.
+          © {new Date().getFullYear()} HorizonX. All rights reserved.
         </p>
         <p className="text-[#5A5A70] font-mono text-[11px] uppercase tracking-widest flex items-center gap-1">
-          Designed by HorizonX Engineering
+          Made with ❤️ by HorizonX
         </p>
       </div>
     </footer>

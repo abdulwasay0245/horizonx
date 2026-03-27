@@ -48,7 +48,7 @@ export default async function TaskPage({
         href={`/tracks/${id}`}
         className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mb-8"
       >
-        ← Back to Track Map
+        ← Back to Track
       </Link>
 
       <div className="mb-10">
@@ -101,10 +101,10 @@ export default async function TaskPage({
              ✅
           </div>
           <h3 className="text-emerald-700 dark:text-emerald-400 font-black text-2xl tracking-tight mb-2">Task Submitted!</h3>
-          <p className="text-emerald-600/80 dark:text-emerald-400/80 font-medium mb-8">Your work has been securely logged and evaluated.</p>
+          <p className="text-emerald-600/80 dark:text-emerald-400/80 font-medium mb-8">Your work has been saved.</p>
           
           <div className="bg-white/50 dark:bg-slate-950/50 rounded-2xl p-6 text-left border border-slate-200/50 dark:border-slate-800/50 shadow-inner mb-8">
-            <p className="text-slate-500 dark:text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Original Submission Archive</p>
+            <p className="text-slate-500 dark:text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Your Submission</p>
             <p className="text-slate-700 dark:text-slate-300 text-sm break-all font-mono bg-slate-100/50 dark:bg-slate-900/50 p-4 rounded-xl">
               {submission.submitted_work}
             </p>

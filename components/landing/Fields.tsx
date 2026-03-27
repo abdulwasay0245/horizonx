@@ -15,9 +15,9 @@ export default function Fields() {
   return (
     <section id="tracks" className="px-6 py-24 md:py-32 max-w-6xl mx-auto bg-[#0A0A0F]">
       <div className="text-center mb-16">
-        <h2 className="mb-4">Curriculum Pathways</h2>
+        <h2 className="mb-4">What You Can Learn</h2>
         <p className="text-[#9090A8] text-lg max-w-xl mx-auto">
-          Deploy your skills across multiple technical domains.
+          Choose a track and start building real skills today.
         </p>
       </div>
       

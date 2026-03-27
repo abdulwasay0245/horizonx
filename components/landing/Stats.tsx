@@ -58,7 +58,7 @@ export default function Stats() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
           <StatItem value={500} suffix="+" label="Active Learners" />
           <StatItem value={20} suffix="+" label="Learning Tracks" />
-          <StatItem value={200} suffix="+" label="Verified Audits" />
+          <StatItem value={200} suffix="+" label="Skills Verified" />
           <StatItem value={95} suffix="%" label="Completion" />
         </div>
       </div>

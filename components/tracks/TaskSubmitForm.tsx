@@ -49,10 +49,10 @@ export default function TaskSubmitForm({
       <div className="flex justify-between items-start mb-6">
         <div>
            <h3 className="text-[#F0F0FF] font-black text-2xl tracking-tight mb-2 flex items-center gap-3">
-             <UploadCloud size={24} className="text-[#6C63FF]" /> Deliver Work
+             <UploadCloud size={24} className="text-[#6C63FF]" /> Submit Your Work
            </h3>
            <p className="text-[#9090A8] text-sm leading-relaxed max-w-md">
-             Input your public repository URI, deployed URL, Figma matrix, or specific documentation string.
+             Paste your GitHub link, live URL, Figma link, or write your answer below.
            </p>
         </div>
       </div>
@@ -68,7 +68,6 @@ export default function TaskSubmitForm({
             className="vercel-input w-full resize-none font-mono text-sm leading-relaxed"
           />
           <div className="absolute top-4 right-4 text-[10px] font-mono text-[#5A5A70] uppercase tracking-widest hidden sm:block">
-            Markdown Accepted
           </div>
         </div>
         
@@ -83,7 +82,7 @@ export default function TaskSubmitForm({
           disabled={loading || !work.trim()}
           className="btn-primary w-full py-4 text-sm uppercase tracking-widest font-bold font-mono"
         >
-          {loading ? 'Submitting payload...' : 'Confirm Execution'}
+          {loading ? 'Submitting...' : 'Submit'}
         </button>
       </form>
     </div>

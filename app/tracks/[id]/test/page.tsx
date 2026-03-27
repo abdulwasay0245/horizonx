@@ -71,9 +71,9 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
           <div className="w-16 h-16 bg-[#FFB340]/10 border border-[#FFB340]/20 text-[#FFB340] rounded-xl flex items-center justify-center mb-6">
             <Hourglass size={32} />
           </div>
-          <h2 className="text-2xl font-bold text-[#F0F0FF] mb-4">Mandatory Cooldown Period</h2>
+          <h2 className="text-2xl font-bold text-[#F0F0FF] mb-4">Come Back Tomorrow</h2>
           <p className="text-[#9090A8] text-sm mb-8 leading-relaxed max-w-md mx-auto">
-            You did not pass the previous evaluation. To ensure adequate study time, you may re-initialize the test protocol after:
+            You didn't pass the previous quiz. You can retake it after:
           </p>
           <div className="bg-[#1A1A24] border border-[#242430] rounded-xl p-4 mb-8 inline-block">
              <p className="text-[#F0F0FF] font-mono text-sm tracking-wider font-bold">
@@ -81,7 +81,7 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
              </p>
           </div>
           <Link href={`/tracks/${id}`} className="btn-secondary text-sm inline-flex items-center gap-2">
-            <ArrowLeft size={16} /> Return to Specification
+            <ArrowLeft size={16} /> Back to Track
           </Link>
         </div>
       </div>

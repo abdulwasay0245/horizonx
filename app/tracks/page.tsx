@@ -37,8 +37,8 @@ export default async function TracksPage() {
   return (
     <div className="max-w-6xl mx-auto py-8 lg:py-12 px-6">
       <div className="mb-12 border-b border-[#242430] pb-8">
-        <h2 className="text-3xl font-black text-[#F0F0FF] tracking-tight mb-2">Curriculum Repository</h2>
-        <p className="text-[#9090A8] text-sm">Select a domain and initialize a module to start building verifiable skills.</p>
+        <h2 className="text-3xl font-black text-[#F0F0FF] tracking-tight mb-2">All Tracks</h2>
+        <p className="text-[#9090A8] text-sm">Pick a track and start learning at your own pace.</p>
       </div>
 
       {tracks && tracks.length > 0 ? (
@@ -71,14 +71,14 @@ export default async function TracksPage() {
                        href={`/tracks/${track.id}`}
                        className="btn-primary w-full flex justify-center py-2 text-sm"
                      >
-                       Resume Protocol
+                       Continue Track
                      </Link>
                    ) : (
                      <Link
                        href={`/tracks/${track.id}`}
                        className="btn-secondary w-full flex justify-center py-2 text-sm text-[#F0F0FF] font-semibold"
                      >
-                       Examine Spec
+                       View Track
                      </Link>
                    )}
                 </div>
@@ -91,9 +91,9 @@ export default async function TracksPage() {
           <div className="w-12 h-12 bg-[#1A1A24] border border-[#242430] rounded-xl flex items-center justify-center mb-6 text-[#5A5A70]">
              <BookOpen size={24} />
           </div>
-          <h4 className="text-[#F0F0FF] font-semibold mb-2">No domains discovered</h4>
+          <h4 className="text-[#F0F0FF] font-semibold mb-2">No tracks available yet</h4>
           <p className="text-[#5A5A70] text-sm mb-6 max-w-sm mx-auto">
-            Check back later. Our principal engineers are currently crafting premium execution matrices.
+            We're working on new tracks. Check back soon!
           </p>
         </div>
       )}

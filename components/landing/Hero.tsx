@@ -10,7 +10,7 @@ export default function Hero() {
         <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
           <div className="mb-8 border-l-2 border-[#6C63FF] pl-3">
              <span className="font-mono text-[11px] text-[#5A5A70] font-semibold uppercase tracking-[0.08em]">
-               Skill Assessment Platform
+               Learn. Build. Get Verified.
              </span>
           </div>
           
@@ -20,7 +20,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-[#9090A8] text-lg max-w-lg mb-10">
-           Complete real-world tasks, pass skill assessments, and earn verified certificates linked to your professional profile.
+           Complete real-world tasks, pass skill assessments, and earn a verified skill badge linked to your profile.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10">
@@ -28,20 +28,20 @@ export default function Hero() {
               href="/register" 
               className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 glow-primary"
             >
-              Start Building <ArrowRight size={18} />
+              Get Started Free <ArrowRight size={18} />
             </Link>
             <Link 
-              href="#framework" 
+              href="#how-it-works" 
               className="btn-secondary w-full sm:w-auto flex items-center justify-center gap-2"
             >
               <Terminal size={18} />
-              Read Documentation
+              See How It Works
             </Link>
           </div>
 
           <div className="flex items-center gap-4 text-[#5A5A70] font-mono text-[11px] uppercase tracking-wider">
              <span className="w-px h-3 bg-[#242430]" />
-             <span>6 Domains already available</span>
+             <span>8 Tracks available</span>
              <span className="w-px h-3 bg-[#242430]" />
              <span>Free Forever</span>
           </div>
@@ -58,7 +58,7 @@ export default function Hero() {
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#6C63FF] to-[#00D4FF]" />
               
               <div className="mb-8">
-                 <p className="font-semibold uppercase tracking-[0.08em] text-[#5A5A70] text-[10px] mb-6">Technical Execution Record</p>
+                 <p className="font-semibold uppercase tracking-[0.08em] text-[#5A5A70] text-[10px] mb-6">Skill Verification Record</p>
                  <h3 className="text-2xl font-bold text-white mb-2 leading-tight">Rao Noman</h3>
                  <span className="badge-advanced">Frontend Architecture</span>
               </div>
@@ -76,8 +76,8 @@ export default function Hero() {
 
               <div>
                  <div className="flex justify-between text-[#5A5A70] font-mono text-[10px] mb-2">
-                    <span>Proficiency Threshold</span>
-                    <span className="text-[#00C896]">Exceeded</span>
+                    <span>Required Score</span>
+                    <span className="text-[#00C896]">Passed</span>
                  </div>
                  <div className="h-1.5 w-full bg-[#1A1A24] rounded-full overflow-hidden">
                     <div className="h-full bg-gradient-to-r from-[#6C63FF] to-[#00D4FF] rounded-full w-[94%]" />

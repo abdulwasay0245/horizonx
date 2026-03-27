@@ -18,7 +18,7 @@ interface TaskListProps {
 export default function TaskList({ tasks, completedTaskIds, isEnrolled, trackId }: TaskListProps) {
   return (
     <div className="mt-8">
-      <h3 className="text-xl font-semibold text-[#F0F0FF] tracking-tight mb-6">Execution Pipeline</h3>
+      <h3 className="text-xl font-semibold text-[#F0F0FF] tracking-tight mb-6">Tasks</h3>
       <div className="space-y-4">
         {tasks.map((task, index) => {
           const isCompleted = completedTaskIds.includes(task.id)
@@ -64,7 +64,7 @@ export default function TaskList({ tasks, completedTaskIds, isEnrolled, trackId 
                           : 'btn-primary !px-6 !py-2 !rounded-lg'
                       }`}
                     >
-                      {isCompleted ? 'Review Output' : <>Execute <ArrowRight size={14} /></>}
+                      {isCompleted ? 'Review' : <>Start Task <ArrowRight size={14} /></>}
                     </Link>
                   )}
 
