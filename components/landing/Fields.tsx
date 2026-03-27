@@ -1,15 +1,15 @@
 import Link from 'next/link'
-import { LayoutTemplate, Server, Paintbrush, BarChart, PenTool, Megaphone, Terminal, Code2, ArrowRight } from 'lucide-react'
+import { LayoutTemplate, Server, Paintbrush, BarChart, PenTool, Megaphone, Terminal, Code2, ArrowRight, Map } from 'lucide-react'
 
 const fields = [
-  { name: 'Frontend Architecture', desc: 'HTML, CSS, JavaScript, React interfaces', icon: <LayoutTemplate size={32} className="text-[#6C63FF]" />, available: true },
-  { name: 'Backend Systems', desc: 'Node.js, REST APIs, Databases', icon: <Server size={32} className="text-[#00D4FF]" />, available: true },
-  { name: 'Interface Design', desc: 'Figma grids, wireframes, prototypes', icon: <Paintbrush size={32} className="text-[#FFB340]" />, available: true },
-  { name: 'Data Engineering', desc: 'SQL structures, Excel, Python scripting', icon: <BarChart size={32} className="text-[#00C896]" />, available: true },
-  { name: 'Technical Writing', desc: 'Documentation, Copywriting, SEO', icon: <PenTool size={32} className="text-[#FF4D6A]" />, available: true },
-  { name: 'Growth Marketing', desc: 'Analytics, Ads, Distribution workflows', icon: <Megaphone size={32} className="text-[#A78BFA]" />, available: true },
-  { name: 'Programming with C++', desc: 'Write basic programs, functions, and simple logic in C++', icon: <Terminal size={32} className="text-[#6C63FF]" />, available: true },
-  { name: 'Programming with C++ (OOP)', desc: 'Learn object-oriented programming basics with C++ classes and objects', icon: <Code2 size={32} className="text-[#00D4FF]" />, available: true },
+  { name: 'Frontend Architecture', slug: 'frontend-architecture', desc: 'HTML, CSS, JavaScript, React interfaces', icon: <LayoutTemplate size={32} className="text-[#6C63FF]" />, available: true },
+  { name: 'Backend Systems', slug: 'backend-systems', desc: 'Node.js, REST APIs, Databases', icon: <Server size={32} className="text-[#00D4FF]" />, available: true },
+  { name: 'Interface Design', slug: 'interface-design', desc: 'Figma grids, wireframes, prototypes', icon: <Paintbrush size={32} className="text-[#FFB340]" />, available: true },
+  { name: 'Data Engineering', slug: 'data-engineering', desc: 'SQL structures, Excel, Python scripting', icon: <BarChart size={32} className="text-[#00C896]" />, available: true },
+  { name: 'Technical Writing', slug: 'technical-writing', desc: 'Documentation, Copywriting, SEO', icon: <PenTool size={32} className="text-[#FF4D6A]" />, available: true },
+  { name: 'Growth Marketing', slug: 'growth-marketing', desc: 'Analytics, Ads, Distribution workflows', icon: <Megaphone size={32} className="text-[#A78BFA]" />, available: true },
+  { name: 'Programming with C++', slug: 'programming-with-cpp', desc: 'Write basic programs, functions, and simple logic in C++', icon: <Terminal size={32} className="text-[#6C63FF]" />, available: true },
+  { name: 'Programming with C++ (OOP)', slug: 'programming-with-cpp-oop', desc: 'Learn object-oriented programming basics with C++ classes and objects', icon: <Code2 size={32} className="text-[#00D4FF]" />, available: true },
 ]
 
 export default function Fields() {
@@ -45,15 +45,27 @@ export default function Fields() {
             {/* Description */}
             <p className="text-[#9090A8] text-sm leading-relaxed mb-6 flex-1">{field.desc}</p>
 
-            {/* CTA */}
+            {/* CTAs */}
             {field.available && (
-              <Link
-                href="/register"
-                className="mt-auto flex items-center gap-2 text-sm font-semibold text-[#6C63FF] hover:text-[#F0F0FF] transition-colors group/link"
-              >
-                Start this track
-                <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform duration-200" />
-              </Link>
+              <div className="mt-auto flex items-center justify-between pt-4 border-t border-[#242430]">
+                {/* Roadmap — public, no login */}
+                <Link
+                  href={`/roadmap/${field.slug}`}
+                  className="flex items-center gap-1.5 text-sm font-medium text-[#9090A8] hover:text-[#F0F0FF] transition-colors group/map"
+                >
+                  <Map size={14} />
+                  View Roadmap
+                </Link>
+
+                {/* Start — requires login */}
+                <Link
+                  href="/register"
+                  className="flex items-center gap-1.5 text-sm font-semibold text-[#6C63FF] hover:text-[#F0F0FF] transition-colors group/link"
+                >
+                  Start Track
+                  <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform duration-200" />
+                </Link>
+              </div>
             )}
           </div>
         ))}
