@@ -1,4 +1,4 @@
-import { LayoutTemplate, Server, Paintbrush, BarChart, PenTool, Megaphone } from 'lucide-react'
+import { LayoutTemplate, Server, Paintbrush, BarChart, PenTool, Megaphone, Terminal, Code2 } from 'lucide-react'
 
 const fields = [
   { name: 'Frontend Architecture', desc: 'HTML, CSS, JavaScript, React interfaces', icon: <LayoutTemplate size={32} className="text-[#F0F0FF]" />, available: true },
@@ -7,6 +7,8 @@ const fields = [
   { name: 'Data Engineering', desc: 'SQL structures, Excel, Python scripting', icon: <BarChart size={32} className="text-[#F0F0FF]" />, available: true },
   { name: 'Technical Writing', desc: 'Documentation, Copywriting, SEO', icon: <PenTool size={32} className="text-[#F0F0FF]" />, available: true },
   { name: 'Growth Marketing', desc: 'Analytics, Ads, Distribution workflows', icon: <Megaphone size={32} className="text-[#F0F0FF]" />, available: true },
+  { name: 'Programming with C++', desc: 'Write basic programs, functions, and simple logic in C++', icon: <Terminal size={32} className="text-[#F0F0FF]" />, available: true },
+  { name: 'Programming with C++ (OOP)', desc: 'Learn object-oriented programming basics with C++ classes and objects', icon: <Code2 size={32} className="text-[#F0F0FF]" />, available: true },
 ]
 
 export default function Fields() {
