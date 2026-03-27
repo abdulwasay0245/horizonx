@@ -17,20 +17,56 @@ export default function HowItWorks() {
           Five simple steps to prove your skills.
         </p>
       </div>
-      
-      <div className="flex overflow-x-auto pb-8 -mx-6 px-6 md:mx-0 md:px-0 md:grid md:grid-cols-5 gap-6 snap-x scrollbar-hide">
+
+      {/* Mobile: horizontal scroll */}
+      <div className="flex overflow-x-auto pb-8 -mx-6 px-6 gap-4 snap-x scrollbar-hide md:hidden">
         {steps.map((item) => (
-          <div key={item.step} className="vercel-card min-w-[260px] md:min-w-0 snap-center flex flex-col items-start justify-start text-left">
-            <div className="w-12 h-12 bg-[#1A1A24] border border-[#242430] rounded-xl flex items-center justify-center mb-6">
+          <div key={item.step} className="vercel-card min-w-[240px] snap-center flex flex-col items-start text-left shrink-0">
+            <div className="w-12 h-12 bg-[#1A1A24] border border-[#242430] rounded-xl flex items-center justify-center mb-5">
               {item.icon}
             </div>
-            <div className="text-[#5A5A70] font-mono text-[10px] font-bold tracking-[0.08em] uppercase mb-3">
-               STEP {item.step}
+            <div className="text-[#5A5A70] font-mono text-[10px] font-bold tracking-[0.08em] uppercase mb-2">
+              STEP {item.step}
             </div>
             <h3 className="text-[#F0F0FF] font-semibold text-lg mb-2">{item.title}</h3>
             <p className="text-[#9090A8] text-sm leading-relaxed">{item.desc}</p>
           </div>
         ))}
+      </div>
+
+      {/* Desktop: connected timeline */}
+      <div className="hidden md:block relative">
+        {/* Connector line behind the cards */}
+        <div className="absolute top-[30px] left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-[#3A3A50] to-transparent pointer-events-none" />
+
+        <div className="grid grid-cols-5 gap-4 relative">
+          {steps.map((item, index) => (
+            <div key={item.step} className="flex flex-col items-start text-left group">
+              {/* Icon with connector dot on the line */}
+              <div className="relative mb-6 w-full flex flex-col items-start">
+                {/* Dot on the timeline */}
+                <div className="absolute -top-[17px] left-6 w-2.5 h-2.5 rounded-full bg-[#6C63FF] ring-4 ring-[#0A0A0F] z-10 group-hover:ring-[#6C63FF]/20 transition-all duration-300" />
+                {/* Icon box */}
+                <div className="w-12 h-12 bg-[#1A1A24] border border-[#242430] rounded-xl flex items-center justify-center group-hover:border-[#6C63FF]/40 group-hover:bg-[#6C63FF]/5 transition-all duration-300 mt-4">
+                  {item.icon}
+                </div>
+              </div>
+
+              <div className="text-[#5A5A70] font-mono text-[10px] font-bold tracking-[0.08em] uppercase mb-2">
+                STEP {item.step}
+              </div>
+              <h3 className="text-[#F0F0FF] font-semibold text-base mb-1 leading-tight">
+                {item.title}
+              </h3>
+              <p className="text-[#9090A8] text-sm leading-relaxed">{item.desc}</p>
+
+              {/* Progress indicator — filled for all except last */}
+              {index < steps.length - 1 && (
+                <div className="absolute top-[30px] left-[calc(100%_-_10px)] w-8 hidden" />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

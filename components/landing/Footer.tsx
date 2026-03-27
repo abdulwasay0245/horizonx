@@ -13,11 +13,10 @@ export default function Footer() {
         </div>
         
         <div className="flex flex-wrap justify-start items-center gap-6 md:gap-8 text-[#9090A8] text-sm">
-          <Link href="/protocol" className="hover:text-[#F0F0FF] transition-colors">Protocol</Link>
           <Link href="/terms" className="hover:text-[#F0F0FF] transition-colors">Terms of Service</Link>
           <Link href="/privacy" className="hover:text-[#F0F0FF] transition-colors">Privacy Policy</Link>
           <Link href="/status" className="hover:text-[#F0F0FF] transition-colors flex items-center gap-2">
-            Status <span className="w-2 h-2 rounded-full bg-[#00C896]" />
+            Status <span className="w-2 h-2 rounded-full bg-[#00C896] shadow-[0_0_6px_#00C896]" />
           </Link>
         </div>
       </div>
