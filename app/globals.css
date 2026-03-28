@@ -122,7 +122,12 @@
       inset 8px 8px 16px rgba(255, 255, 255, 0.8);
   }
   .clay-card-interactive {
-    @apply clay-card cursor-pointer;
+    @apply bg-[#EAEFF5] rounded-[32px] p-8 transition-transform duration-300 border border-t-[rgba(255,255,255,0.8)] border-l-[rgba(255,255,255,0.7)] border-b-[rgba(0,0,0,0.02)] border-r-[rgba(0,0,0,0.02)] cursor-pointer;
+    box-shadow: 
+      12px 12px 24px #c8d0e7,
+      -12px -12px 24px #ffffff,
+      inset -8px -8px 16px rgba(0, 0, 0, 0.06),
+      inset 8px 8px 16px rgba(255, 255, 255, 0.8);
   }
   .clay-card-interactive:hover {
     transform: translateY(-4px);
