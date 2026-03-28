@@ -2,52 +2,49 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
   
   --color-brand-primary: #6C63FF;
-  --color-brand-primary-hover: #5A52E0;
+  --color-brand-primary-hover: #7D75FF;
   --color-brand-accent: #00D4FF;
   
   --color-brand-success: #00C896;
   --color-brand-warning: #FFB340;
   --color-brand-danger: #FF4D6A;
 
-  --color-background: #0A0A0F;
-  --color-surface: #111118;
-  --color-surface-elevated: #1A1A24;
+  --color-background: #EAEFF5;
+  --color-surface: #F5F8FA;
+  --color-surface-elevated: #FFFFFF;
   
-  --color-border: #242430;
-  --color-border-hover: #3A3A50;
+  --color-border: #D1D9E6;
+  --color-border-hover: #B8C4D9;
 
-  --color-text-primary: #F0F0FF;
-  --color-text-secondary: #9090A8;
-  --color-text-muted: #5A5A70;
+  --color-text-primary: #2D3748;
+  --color-text-secondary: #4A5568;
+  --color-text-muted: #718096;
 }
 
-/* Force dark mode everywhere for this strict theme */
 :root {
-  --background: #0A0A0F;
-  --foreground: #F0F0FF;
-  --card: #111118;
-  --card-foreground: #F0F0FF;
-  --popover: #111118;
-  --popover-foreground: #F0F0FF;
+  --background: #EAEFF5;
+  --foreground: #2D3748;
+  --card: #F5F8FA;
+  --card-foreground: #2D3748;
+  --popover: #F5F8FA;
+  --popover-foreground: #2D3748;
   --primary: #6C63FF;
   --primary-foreground: #ffffff;
-  --secondary: transparent;
-  --secondary-foreground: #9090A8;
-  --muted: #1A1A24;
-  --muted-foreground: #5A5A70;
+  --secondary: #EAEFF5;
+  --secondary-foreground: #4A5568;
+  --muted: #E2E8F0;
+  --muted-foreground: #718096;
   --accent: #00D4FF;
-  --accent-foreground: #0A0A0F;
+  --accent-foreground: #ffffff;
   --destructive: #FF4D6A;
   --destructive-foreground: #ffffff;
-  --border: #242430;
-  --input: #1A1A24;
+  --border: #D1D9E6;
+  --input: #EAEFF5;
   --ring: #6C63FF;
 }
 
@@ -55,50 +52,109 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    @apply font-sans antialiased selection:bg-[#6C63FF]/30 selection:text-white;
+    @apply font-sans antialiased selection:bg-[#6C63FF]/30 selection:text-[#6C63FF];
   }
   
-  /* Strict typographic hierarchy per Vercel/Linear spec */
+  /* Soft typographic hierarchy for Claymorphism */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-[800] tracking-[-0.03em] text-[#F0F0FF];
+    @apply font-sans font-[800] tracking-tight text-[#2D3748];
   }
   p {
-    @apply font-[400] leading-[1.6] text-[#9090A8];
+    @apply font-medium leading-relaxed text-[#4A5568];
   }
 }
 
 @layer utilities {
-  .btn-primary {
-    @apply bg-[#6C63FF] hover:bg-[#5A52E0] text-white rounded-xl font-semibold px-6 py-3 transition-all duration-200 outline-none focus:ring-2 focus:ring-[#6C63FF]/50;
+  .clay-btn-primary {
+    @apply bg-[#6C63FF] text-white rounded-2xl font-bold px-8 py-4 transition-all duration-300 outline-none focus:ring-4 focus:ring-[#6C63FF]/50 border border-t-[rgba(255,255,255,0.4)] border-transparent;
+    box-shadow: 
+      8px 8px 16px rgba(108, 99, 255, 0.3),
+      inset -4px -4px 8px rgba(0, 0, 0, 0.2),
+      inset 4px 4px 8px rgba(255, 255, 255, 0.4);
   }
-  .btn-secondary {
-    @apply bg-transparent border border-[#3A3A50] text-[#9090A8] hover:text-white hover:border-[#6C63FF] rounded-xl px-6 py-3 transition-all duration-200 outline-none focus:ring-2 focus:ring-[#6C63FF]/50;
+  .clay-btn-primary:hover {
+    @apply bg-[#7D75FF];
+    transform: translateY(-2px);
+    box-shadow: 
+      12px 12px 20px rgba(108, 99, 255, 0.35),
+      inset -4px -4px 8px rgba(0, 0, 0, 0.2),
+      inset 4px 4px 8px rgba(255, 255, 255, 0.4);
   }
-  .btn-danger {
-    @apply bg-[#FF4D6A]/10 text-[#FF4D6A] border border-[#FF4D6A]/20 hover:bg-[#FF4D6A]/20 rounded-xl px-6 py-3 transition-all duration-200 font-semibold;
+  .clay-btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: 
+      4px 4px 8px rgba(108, 99, 255, 0.25),
+      inset -6px -6px 12px rgba(0, 0, 0, 0.3),
+      inset 6px 6px 12px rgba(255, 255, 255, 0.2);
   }
-  .vercel-card {
-    @apply bg-[#111118] border border-[#242430] hover:border-[#3A3A50] rounded-2xl p-6 transition-colors duration-200 shadow-none;
+
+  .clay-btn-secondary {
+    @apply bg-[#F5F8FA] text-[#4A5568] border-none rounded-2xl font-bold px-8 py-4 transition-all duration-300 outline-none focus:ring-4 focus:ring-[#D1D9E6];
+    box-shadow: 
+      6px 6px 12px #c8d0e7,
+      -6px -6px 12px #ffffff,
+      inset -4px -4px 8px rgba(0, 0, 0, 0.04),
+      inset 4px 4px 8px rgba(255, 255, 255, 0.9);
   }
-  .vercel-input {
-    @apply bg-[#1A1A24] border border-[#242430] focus:border-[#6C63FF] focus:ring-0 rounded-xl px-4 py-3 text-[#F0F0FF] placeholder:text-[#5A5A70] outline-none transition-colors duration-200;
+  .clay-btn-secondary:hover {
+    @apply text-[#2D3748];
+    transform: translateY(-2px);
+    box-shadow: 
+      10px 10px 16px #c8d0e7,
+      -10px -10px 16px #ffffff,
+      inset -4px -4px 8px rgba(0, 0, 0, 0.04),
+      inset 4px 4px 8px rgba(255, 255, 255, 0.9);
   }
-  
-  .badge-beginner {
-    @apply bg-[#00C896]/10 text-[#00C896] border border-[#00C896]/20 rounded-md px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider whitespace-nowrap;
+  .clay-btn-secondary:active {
+    transform: translateY(2px);
+    box-shadow: 
+      2px 2px 4px #c8d0e7,
+      inset -8px -8px 16px rgba(0, 0, 0, 0.08),
+      inset 8px 8px 16px rgba(255, 255, 255, 0.9);
   }
-  .badge-intermediate {
-    @apply bg-[#FFB340]/10 text-[#FFB340] border border-[#FFB340]/20 rounded-md px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider whitespace-nowrap;
+
+  .clay-card {
+    @apply bg-[#EAEFF5] rounded-[32px] p-8 transition-transform duration-300 border border-t-[rgba(255,255,255,0.8)] border-l-[rgba(255,255,255,0.7)] border-b-[rgba(0,0,0,0.02)] border-r-[rgba(0,0,0,0.02)];
+    box-shadow: 
+      12px 12px 24px #c8d0e7,
+      -12px -12px 24px #ffffff,
+      inset -8px -8px 16px rgba(0, 0, 0, 0.06),
+      inset 8px 8px 16px rgba(255, 255, 255, 0.8);
   }
-  .badge-advanced {
-    @apply bg-[#FF4D6A]/10 text-[#FF4D6A] border border-[#FF4D6A]/20 rounded-md px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider whitespace-nowrap;
+  .clay-card-interactive {
+    @apply clay-card cursor-pointer;
   }
-  
-  .glow-primary {
-    box-shadow: 0 0 40px rgba(108, 99, 255, 0.3);
+  .clay-card-interactive:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      20px 20px 40px #c8d0e7,
+      -10px -10px 20px #ffffff,
+      inset -8px -8px 16px rgba(0, 0, 0, 0.06),
+      inset 8px 8px 16px rgba(255, 255, 255, 0.8);
   }
-  .bg-dot-grid {
-    background-image: radial-gradient(#242430 1px, transparent 1px);
-    background-size: 24px 24px;
+  .clay-card-interactive:active {
+    transform: translateY(2px);
+    box-shadow: 
+      4px 4px 8px #c8d0e7,
+      inset -12px -12px 24px rgba(0, 0, 0, 0.1),
+      inset 12px 12px 24px rgba(255, 255, 255, 0.9);
+  }
+
+  /* Badge replacements */
+  .badge-clay-success {
+    @apply bg-[#EAEFF5] text-[#00C896] rounded-xl px-3 py-1 text-xs font-bold uppercase tracking-wider;
+    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.06), inset 2px 2px 5px rgba(255,255,255,0.9), 3px 3px 6px #c8d0e7;
+  }
+  .badge-clay-warning {
+    @apply bg-[#EAEFF5] text-[#FFB340] rounded-xl px-3 py-1 text-xs font-bold uppercase tracking-wider;
+    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.06), inset 2px 2px 5px rgba(255,255,255,0.9), 3px 3px 6px #c8d0e7;
+  }
+  .badge-clay-primary {
+    @apply bg-[#EAEFF5] text-[#6C63FF] rounded-xl px-3 py-1 text-xs font-bold uppercase tracking-wider;
+    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.06), inset 2px 2px 5px rgba(255,255,255,0.9), 3px 3px 6px #c8d0e7;
+  }
+  .badge-clay-neutral {
+    @apply bg-[#EAEFF5] text-[#718096] rounded-xl px-3 py-1 text-xs font-bold uppercase tracking-wider;
+    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.06), inset 2px 2px 5px rgba(255,255,255,0.9), 3px 3px 6px #c8d0e7;
   }
 }

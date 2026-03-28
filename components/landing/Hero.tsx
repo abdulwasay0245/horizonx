@@ -7,84 +7,80 @@ export default function Hero() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
         
         {/* LEFT COLUMN */}
-        <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
-          <div className="mb-8 border-l-2 border-[#6C63FF] pl-3">
-             <span className="font-mono text-[11px] text-[#5A5A70] font-semibold uppercase tracking-[0.08em]">
+        <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
+          <div className="mb-8 border-l-4 lg:border-l-4 border-[#6C63FF] pl-4 lg:pl-4 py-1">
+             <span className="font-mono text-[12px] text-[#6C63FF] font-black uppercase tracking-[0.1em]">
                Learn. Build. Get Verified.
              </span>
           </div>
           
-          <h1 className="mb-6">
+          <h1 className="mb-6 text-5xl lg:text-6xl text-[#2D3748] tracking-tight leading-tight">
             Prove What You <br />
             <span className="text-[#6C63FF]">Actually</span> Know.
           </h1>
           
-          <p className="text-[#9090A8] text-lg max-w-lg mb-10">
-           Complete real-world tasks, pass skill assessments, and earn a verified skill badge linked to your profile.
+          <p className="text-[#4A5568] text-lg lg:text-xl max-w-xl mb-10 font-medium leading-relaxed">
+           Complete real-world tasks, pass skill assessments, and earn a verified skill badge linked to your profile in a beautiful workspace.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10">
+          <div className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto mb-10">
             <Link 
               href="/register" 
-              className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 glow-primary"
+              className="clay-btn-primary w-full sm:w-auto flex items-center justify-center gap-2"
             >
               Get Started Free <ArrowRight size={18} />
             </Link>
             <Link 
               href="#how-it-works" 
-              className="btn-secondary w-full sm:w-auto flex items-center justify-center gap-2"
+              className="clay-btn-secondary w-full sm:w-auto flex items-center justify-center gap-2"
             >
               <Terminal size={18} />
               See How It Works
             </Link>
           </div>
 
-          <div className="flex items-center gap-4 text-[#5A5A70] font-mono text-[11px] uppercase tracking-wider">
-             <span className="w-px h-3 bg-[#242430]" />
+          <div className="flex items-center gap-4 text-[#718096] font-mono text-[11px] uppercase tracking-widest font-bold">
+             <span className="w-1.5 h-1.5 rounded-full bg-[#6C63FF]" />
              <span>8 Tracks available</span>
-             <span className="w-px h-3 bg-[#242430]" />
+             <span className="w-1.5 h-1.5 rounded-full bg-[#6C63FF]" />
              <span>Free Forever</span>
           </div>
         </div>
 
         {/* RIGHT COLUMN */}
-        <div className="lg:col-span-5 relative w-full flex justify-center lg:justify-end perspective-[1000px]">
-           {/* Subtle Dot Grid Background */}
-           <div className="absolute inset-0 bg-dot-grid opacity-50 -z-10 scale-[1.5] translate-x-8" />
+        <div className="lg:col-span-5 relative w-full flex justify-center lg:justify-end">
+           {/* Soft Clay Background Blob */}
+           <div className="absolute inset-0 bg-[#6C63FF]/5 -z-10 scale-[1.2] lg:translate-x-8 rounded-full blur-[80px]" />
            
-           {/* Mock Verification Record */}
-           <div className="w-full max-w-[400px] bg-[#111118] border border-[#242430] rounded-2xl p-8 -rotate-2 glow-primary hover:rotate-0 hover:scale-[1.02] transition-all duration-500 relative overflow-hidden group">
-              {/* Top Accent Line */}
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#6C63FF] to-[#00D4FF]" />
+           {/* Mock Verification Record (Clay Card) */}
+           <div className="w-full max-w-[400px] clay-card !p-8 -rotate-2 hover:rotate-0 transition-transform duration-500 relative group overflow-hidden">
               
-              <div className="mb-8">
-                 <p className="font-semibold uppercase tracking-[0.08em] text-[#5A5A70] text-[10px] mb-6">Skill Verification Record</p>
-                 <h3 className="text-2xl font-bold text-white mb-2 leading-tight">Rao Noman</h3>
-                 <span className="badge-advanced">Frontend Architecture</span>
+              <div className="mb-8 relative z-10">
+                 <p className="font-bold uppercase tracking-[0.1em] text-[#718096] text-[10px] mb-4">Skill Verification Record</p>
+                 <h3 className="text-3xl font-black text-[#2D3748] mb-3 leading-tight">Rao Noman</h3>
+                 <span className="badge-clay-primary">Frontend Architecture</span>
               </div>
 
-              <div className="flex items-end justify-between mb-8 border-b border-[#242430] pb-6">
+              <div className="flex items-end justify-between mb-8 pb-6 border-b border-[#D1D9E6] relative z-10">
                  <div>
-                    <p className="text-[#5A5A70] font-mono text-[10px] uppercase mb-1">Final Score</p>
-                    <div className="font-mono text-5xl font-black text-[#6C63FF] tracking-tighter">94%</div>
+                    <p className="text-[#718096] font-bold text-[10px] uppercase mb-1 tracking-wider">Final Score</p>
+                    <div className="font-mono text-5xl font-black text-[#6C63FF] tracking-tighter" style={{ textShadow: "2px 2px 4px rgba(108, 99, 255, 0.2)" }}>94%</div>
                  </div>
                  <div className="text-right">
-                    <p className="text-[#5A5A70] font-mono text-[10px] uppercase mb-1">Passed On</p>
-                    <p className="font-mono text-sm text-[#F0F0FF]">Jan 24, 2026</p>
+                    <p className="text-[#718096] font-bold text-[10px] uppercase mb-1 tracking-wider">Passed On</p>
+                    <p className="font-mono text-sm text-[#4A5568] font-bold">Jan 24, 2026</p>
                  </div>
               </div>
 
-              <div>
-                 <div className="flex justify-between text-[#5A5A70] font-mono text-[10px] mb-2">
+              <div className="relative z-10">
+                 <div className="flex justify-between text-[#718096] font-bold text-[10px] mb-3 uppercase tracking-wider">
                     <span>Required Score</span>
                     <span className="text-[#00C896]">Passed</span>
                  </div>
-                 <div className="h-1.5 w-full bg-[#1A1A24] rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[#6C63FF] to-[#00D4FF] rounded-full w-[94%]" />
+                 <div className="h-4 w-full bg-[#F5F8FA] rounded-full shadow-[inset_2px_2px_4px_rgba(0,0,0,0.06),inset_-2px_-2px_4px_rgba(255,255,255,0.8)] overflow-hidden p-1">
+                    <div className="h-full bg-[#6C63FF] rounded-full w-[94%] shadow-[2px_2px_4px_rgba(108,99,255,0.4)]" />
                  </div>
               </div>
-
-              <div className="absolute bottom-[-20%] right-[-10%] w-[150px] h-[150px] bg-[#6C63FF]/5 rounded-full blur-[40px] pointer-events-none group-hover:bg-[#6C63FF]/10 transition-colors duration-500" />
            </div>
         </div>
         

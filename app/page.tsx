@@ -10,20 +10,20 @@ import Footer from '@/components/landing/Footer'
 
 export default function HomePage() {
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen bg-[#EAEFF5]">
       <Navbar />
       <Hero />
-      <hr className="border-[#242430] my-0" />
+      <hr className="border-[#D1D9E6] my-0" />
       <HowItWorks />
-      <hr className="border-[#242430] my-0" />
+      <hr className="border-[#D1D9E6] my-0" />
       <Fields />
-      <hr className="border-[#242430] my-0" />
+      <hr className="border-[#D1D9E6] my-0" />
       <WhyHorizonX />
-      <hr className="border-[#242430] my-0" />
+      <hr className="border-[#D1D9E6] my-0" />
       <Stats />
-      <hr className="border-[#242430] my-0" />
+      <hr className="border-[#D1D9E6] my-0" />
       <Testimonials />
-      <hr className="border-[#242430] my-0" />
+      <hr className="border-[#D1D9E6] my-0" />
       <CTABanner />
       <Footer />
     </main>
