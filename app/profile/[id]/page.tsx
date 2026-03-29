@@ -15,7 +15,7 @@ export default async function PublicProfilePage({ params }: { params: Promise<{ 
   if (!profile) {
     return (
       <div className="min-h-[100dvh] bg-[#EAEFF5] flex flex-col items-center justify-center p-4">
-        <div className="clay-card !bg-[#F5F8FA] text-center max-w-sm w-full animate-fade-in-up">
+        <div className="clay-card text-center max-w-sm w-full animate-fade-in-up">
           <div className="w-16 h-16 bg-[#EAEFF5] border-none shadow-[inset_1px_1px_3px_rgba(255,255,255,0.8),inset_-1px_-1px_3px_rgba(0,0,0,0.05),2px_2px_4px_#c8d0e7] rounded-2xl flex items-center justify-center mx-auto mb-8 text-[#A0AEC0]">
             <TerminalSquare size={32} className="drop-shadow-sm" />
           </div>
@@ -30,7 +30,7 @@ export default async function PublicProfilePage({ params }: { params: Promise<{ 
   if (!profile.is_public) {
     return (
       <div className="min-h-[100dvh] bg-[#EAEFF5] flex flex-col items-center justify-center p-4 relative overflow-hidden">
-        <div className="clay-card !bg-[#F5F8FA] text-center max-w-sm w-full animate-fade-in-up">
+        <div className="clay-card text-center max-w-sm w-full animate-fade-in-up">
           <div className="w-16 h-16 bg-[#FFF0F2] text-[#FF4D6A] rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-[inset_1px_1px_3px_rgba(255,100,100,0.1),inset_-1px_-1px_3px_rgba(255,255,255,0.9),2px_2px_4px_#c8d0e7]">
             <ShieldCheck size={32} className="drop-shadow-sm" />
           </div>
@@ -119,7 +119,7 @@ export default async function PublicProfilePage({ params }: { params: Promise<{ 
                   href={`/certificate/${cert.id}`}
                   className="block group"
                 >
-                  <div className="clay-card !bg-[#F5F8FA] flex flex-col sm:flex-row sm:items-center justify-between !p-6 hover:shadow-[4px_4px_12px_#c8d0e7,inset_-2px_-2px_4px_rgba(255,255,255,0.9)] transition-all">
+                  <div className="clay-card flex flex-col sm:flex-row sm:items-center justify-between !p-6 hover:shadow-[4px_4px_12px_#c8d0e7,inset_-2px_-2px_4px_rgba(255,255,255,0.9)] transition-all">
                     <div className="mb-6 sm:mb-0">
                       <h4 className="text-[#2D3748] font-black tracking-tight text-xl mb-3 group-hover:text-[#6C63FF] transition-colors drop-shadow-sm">
                         {cert.tracks?.fields?.name || 'Unknown Protocol'}
@@ -156,7 +156,7 @@ export default async function PublicProfilePage({ params }: { params: Promise<{ 
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {enrollments.map((e) => (
-                <div key={e.id} className="clay-card !bg-[#F5F8FA] !p-6 flex items-start gap-5 hover:scale-[1.01] transition-transform">
+                <div key={e.id} className="clay-card !p-6 flex items-start gap-5 hover:scale-[1.01] transition-transform">
                   <div className="w-12 h-12 bg-[#EAEFF5] rounded-xl shadow-[inset_1px_1px_3px_rgba(255,255,255,0.8),inset_-1px_-1px_3px_rgba(0,0,0,0.05),2px_2px_4px_#c8d0e7] flex items-center justify-center text-[#A0AEC0] shrink-0">
                     <BookOpen size={20} className="drop-shadow-sm" />
                   </div>

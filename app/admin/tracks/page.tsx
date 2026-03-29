@@ -25,7 +25,7 @@ export default async function AdminTracksPage() {
         </Link>
       </div>
 
-      <div className="clay-card !p-0 overflow-hidden bg-[#F5F8FA]">
+      <div className="clay-card !p-0 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>

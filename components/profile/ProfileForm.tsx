@@ -59,7 +59,7 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="w-full text-sm bg-[#EAEFF5] border-none text-[#2D3748] rounded-2xl px-4 py-3.5 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] focus:ring-4 focus:ring-[#6C63FF]/30 outline-none transition-all placeholder:text-[#A0AEC0] font-medium"
+            className="clay-input w-full text-sm"
         />
       </div>
 
@@ -71,7 +71,7 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
           onChange={(e) => setBio(e.target.value)}
           rows={4}
           placeholder="Tell us about your technical journey..."
-          className="w-full text-sm bg-[#EAEFF5] border-none text-[#2D3748] rounded-2xl px-4 py-3.5 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] focus:ring-4 focus:ring-[#6C63FF]/30 outline-none transition-all placeholder:text-[#A0AEC0] font-medium resize-none"
+          className="clay-input w-full text-sm resize-none"
         />
       </div>
 
@@ -84,7 +84,7 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
             value={linkedinUrl}
             onChange={(e) => setLinkedinUrl(e.target.value)}
             placeholder="https://linkedin.com/in/yourname"
-            className="w-full text-sm bg-[#EAEFF5] border-none text-[#2D3748] rounded-2xl px-4 py-3.5 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] focus:ring-4 focus:ring-[#6C63FF]/30 outline-none transition-all placeholder:text-[#A0AEC0] font-medium"
+              className="clay-input w-full text-sm"
           />
         </div>
 
@@ -96,7 +96,7 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
             value={githubUrl}
             onChange={(e) => setGithubUrl(e.target.value)}
             placeholder="https://github.com/yourname"
-            className="w-full text-sm bg-[#EAEFF5] border-none text-[#2D3748] rounded-2xl px-4 py-3.5 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] focus:ring-4 focus:ring-[#6C63FF]/30 outline-none transition-all placeholder:text-[#A0AEC0] font-medium"
+              className="clay-input w-full text-sm"
           />
         </div>
       </div>

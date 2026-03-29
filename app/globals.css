@@ -145,7 +145,23 @@
       inset 12px 12px 24px rgba(255, 255, 255, 0.9);
   }
 
+  .clay-input {
+    @apply bg-[#F5F8FA] border-none text-[#2D3748] rounded-2xl px-4 py-3.5 focus:ring-4 focus:ring-[#6C63FF]/30 outline-none transition-all placeholder:text-[#A0AEC0] font-medium;
+    box-shadow: 
+      inset 3px 3px 6px rgba(0, 0, 0, 0.05),
+      inset -3px -3px 6px rgba(255, 255, 255, 0.9);
+  }
+
+  .clay-panel-inner {
+    @apply bg-[#F5F8FA] rounded-3xl;
+    box-shadow: 
+      inset 2px 2px 5px rgba(255, 255, 255, 0.8),
+      inset -2px -2px 5px rgba(0, 0, 0, 0.05),
+      3px 3px 6px #c8d0e7;
+  }
+
   /* Badge replacements */
+
   .badge-clay-success {
     @apply bg-[#EAEFF5] text-[#00C896] rounded-xl px-3 py-1 text-xs font-bold uppercase tracking-wider;
     box-shadow: inset -2px -2px 5px rgba(0,0,0,0.06), inset 2px 2px 5px rgba(255,255,255,0.9), 3px 3px 6px #c8d0e7;

@@ -57,7 +57,7 @@ export default async function TaskPage({
         <h2 className="text-4xl md:text-5xl font-black text-[#2D3748] tracking-tight leading-tight drop-shadow-sm">{task.title}</h2>
       </div>
 
-      <div className="clay-card !p-8 mb-8 bg-[#F5F8FA]">
+      <div className="clay-card !p-8 mb-8">
         <div className="flex items-center gap-2 mb-4">
            <span className="text-xl drop-shadow-sm">📋</span>
            <h3 className="text-[#2D3748] font-black text-xl tracking-tight">Assignment Details</h3>
@@ -68,7 +68,7 @@ export default async function TaskPage({
       </div>
 
       {task.resources && (
-        <div className="clay-card !p-8 mb-8 bg-[#F5F8FA]">
+        <div className="clay-card !p-8 mb-8">
           <div className="flex items-center gap-2 mb-4">
              <span className="text-xl drop-shadow-sm">🔗</span>
              <h3 className="text-[#2D3748] font-black text-xl tracking-tight">Helpful Resources</h3>
@@ -95,7 +95,7 @@ export default async function TaskPage({
       )}
 
       {isSubmitted ? (
-        <div className="clay-card !p-8 text-center bg-[#F5F8FA]">
+        <div className="clay-card !p-8 text-center">
           <div className="w-20 h-20 bg-[#F5F8FA] rounded-3xl flex items-center justify-center text-4xl mx-auto mb-6 shadow-[inset_2px_2px_4px_rgba(255,255,255,0.8),inset_-2px_-2px_4px_rgba(0,0,0,0.05),3px_3px_8px_#c8d0e7] animate-fade-in">
              <span className="drop-shadow-sm">✅</span>
           </div>

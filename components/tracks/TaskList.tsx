@@ -27,7 +27,7 @@ export default function TaskList({ tasks, completedTaskIds, isEnrolled, trackId 
           return (
             <div
               key={task.id}
-              className={`clay-card !p-5 transition-all duration-300 border-l-4 bg-[#F5F8FA] flex flex-col sm:flex-row sm:items-center justify-between gap-6 ${
+              className={`clay-card !p-5 transition-all duration-300 border-l-4 flex flex-col sm:flex-row sm:items-center justify-between gap-6 ${
                 isCompleted
                   ? 'border-l-[#00C896] shadow-[inset_1px_1px_3px_rgba(255,255,255,0.8),inset_-1px_-1px_3px_rgba(0,0,0,0.02),2px_2px_5px_#c8d0e7]'
                   : isLocked

@@ -71,7 +71,7 @@ export default function LoginPage() {
                 onChange={e => setEmail(e.target.value)}
                 placeholder="developer@example.com"
                 required
-                className="w-full text-sm bg-[#F5F8FA] border-none text-[#2D3748] rounded-2xl px-4 py-3.5 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] focus:ring-4 focus:ring-[#6C63FF]/30 outline-none transition-all placeholder:text-[#A0AEC0] font-medium"
+                className="clay-input w-full text-sm"
               />
             </div>
 
@@ -85,7 +85,7 @@ export default function LoginPage() {
                 onChange={e => setPassword(e.target.value)}
                 placeholder="••••••••"
                 required
-                className="w-full text-sm bg-[#F5F8FA] border-none text-[#2D3748] rounded-2xl px-4 py-3.5 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] focus:ring-4 focus:ring-[#6C63FF]/30 outline-none transition-all placeholder:text-[#A0AEC0] font-medium"
+                className="clay-input w-full text-sm"
               />
             </div>
 
@@ -109,7 +109,7 @@ export default function LoginPage() {
               <div className="w-full border-t border-[#D1D9E6]" />
             </div>
             <div className="relative flex justify-center text-[10px] font-black uppercase tracking-widest">
-              <span className="bg-[#F5F8FA] px-4 text-[#A0AEC0]">
+              <span className="bg-[#EAEFF5] px-4 text-[#A0AEC0]">
                 OR
               </span>
             </div>

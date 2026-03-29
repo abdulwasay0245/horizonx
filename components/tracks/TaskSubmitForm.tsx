@@ -45,7 +45,7 @@ export default function TaskSubmitForm({
   }
 
   return (
-    <div className="clay-card mt-8 bg-[#F5F8FA]">
+    <div className="clay-card mt-8">
       <div className="flex justify-between items-start mb-6">
         <div>
            <h3 className="text-[#2D3748] font-black text-2xl tracking-tight mb-2 flex items-center gap-3 drop-shadow-sm">

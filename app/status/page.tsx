@@ -20,7 +20,7 @@ export default function StatusPage() {
 
         <div className="space-y-4">
           {services.map((s) => (
-            <div key={s.name} className="clay-card !bg-[#F5F8FA] flex items-center justify-between !py-5 hover:shadow-[4px_4px_10px_#c8d0e7,inset_-1px_-1px_3px_rgba(255,255,255,0.9)] transition-all">
+            <div key={s.name} className="clay-card flex items-center justify-between !py-5 hover:shadow-[4px_4px_10px_#c8d0e7,inset_-1px_-1px_3px_rgba(255,255,255,0.9)] transition-all">
               <span className="text-[#2D3748] font-black text-[15px] drop-shadow-sm">{s.name}</span>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#00C896] shadow-[inset_1px_1px_2px_rgba(255,255,255,0.8),inset_-1px_-1px_2px_rgba(0,0,0,0.1)]" />

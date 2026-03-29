@@ -67,7 +67,7 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
     const retryAt = new Date(new Date(recentFail.attempted_at).getTime() + 24 * 60 * 60 * 1000)
     return (
       <div className="min-h-[100dvh] bg-[#EAEFF5] flex flex-col items-center justify-center p-6 text-center">
-        <div className="clay-card max-w-xl w-full flex flex-col items-center bg-[#F5F8FA]">
+        <div className="clay-card max-w-xl w-full flex flex-col items-center">
           <div className="w-20 h-20 bg-[#F5F8FA] shadow-[inset_2px_2px_4px_rgba(255,255,255,0.8),inset_-2px_-2px_4px_rgba(0,0,0,0.05),3px_3px_8px_#c8d0e7] text-[#FFB340] rounded-3xl flex items-center justify-center mb-8">
             <Hourglass size={36} className="drop-shadow-sm" />
           </div>

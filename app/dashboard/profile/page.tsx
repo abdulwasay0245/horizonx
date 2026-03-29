@@ -24,7 +24,7 @@ export default async function ProfileSettingsPage() {
       </div>
 
       {/* Public profile link */}
-      <div className="clay-card !p-6 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#F5F8FA]">
+      <div className="clay-card !p-6 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <p className="text-[#4A5568] text-sm font-bold mb-2 uppercase tracking-wide">Your public profile</p>
           <p className="text-[#6C63FF] text-sm break-all font-mono bg-[#EAEFF5] px-3 py-2 rounded-xl inline-block shadow-[inset_1px_1px_3px_rgba(0,0,0,0.05)] font-bold">
@@ -41,7 +41,7 @@ export default async function ProfileSettingsPage() {
         </a>
       </div>
 
-      <div className="clay-card !p-8 lg:!p-10 bg-[#F5F8FA]">
+      <div className="clay-card !p-8 lg:!p-10">
         <ProfileForm profile={profile} />
       </div>
     </div>

@@ -192,7 +192,7 @@ export default async function RoadmapPage({ params }: { params: Promise<{ slug: 
                   </div>
 
                   {/* Task card */}
-                  <div className="flex-1 clay-card !bg-[#F5F8FA] !p-6 hover:shadow-[4px_4px_12px_#c8d0e7,inset_-2px_-2px_4px_rgba(255,255,255,0.9)] transition-all duration-300 transform group-hover:-translate-y-0.5">
+                  <div className="flex-1 clay-card !p-6 hover:shadow-[4px_4px_12px_#c8d0e7,inset_-2px_-2px_4px_rgba(255,255,255,0.9)] transition-all duration-300 transform group-hover:-translate-y-0.5">
                     <h3 className="text-[#2D3748] font-black text-lg mb-2 leading-snug drop-shadow-sm">
                       {task.title}
                     </h3>
@@ -211,7 +211,7 @@ export default async function RoadmapPage({ params }: { params: Promise<{ slug: 
                 >
                   <CheckCircle2 size={24} className="drop-shadow-sm" />
                 </div>
-                <div className="flex-1 clay-card !bg-[#FFF8EB] !p-6 border border-[#FFF8EB]">
+                <div className="flex-1 clay-card !p-6 border border-[#FFF8EB]">
                   <h3 className="text-[#FFB340] font-black text-lg mb-2 drop-shadow-sm">
                     Final Quiz — {questionCount} Questions
                   </h3>
@@ -226,7 +226,7 @@ export default async function RoadmapPage({ params }: { params: Promise<{ slug: 
                 <div className="w-14 h-14 shrink-0 rounded-[1.2rem] flex items-center justify-center border-none bg-[#EAEFF5] z-10 text-[#A0AEC0] shadow-[inset_1px_1px_3px_rgba(255,255,255,0.8),inset_-1px_-1px_3px_rgba(0,0,0,0.05),2px_2px_4px_#c8d0e7]">
                   <Lock size={22} className="drop-shadow-sm" />
                 </div>
-                <div className="flex-1 clay-card !bg-[#EAEFF5] border-dashed border-2 border-[#D1D9E6] !p-6 shadow-[inset_2px_2px_5px_rgba(255,255,255,0.9),inset_-2px_-2px_5px_rgba(0,0,0,0.03)]">
+                <div className="flex-1 clay-card border-dashed border-2 border-[#D1D9E6] !p-6 shadow-[inset_2px_2px_5px_rgba(255,255,255,0.9),inset_-2px_-2px_5px_rgba(0,0,0,0.03)]">
                   <h3 className="text-[#A0AEC0] font-black text-lg mb-2 drop-shadow-sm">
                     Skill Badge Unlocked
                   </h3>
@@ -241,7 +241,7 @@ export default async function RoadmapPage({ params }: { params: Promise<{ slug: 
 
         {/* CTA block */}
         <div
-          className="clay-card !bg-[#F5F8FA] p-10 text-center relative overflow-hidden"
+          className="clay-card p-10 text-center relative overflow-hidden"
         >
           <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ background: color }}></div>
           <h3 className="text-3xl font-black text-[#2D3748] mb-4 tracking-tight drop-shadow-sm relative z-10">

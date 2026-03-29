@@ -67,7 +67,7 @@ export default function NewTrackPage() {
         <p className="text-[#718096] text-[15px] font-medium leading-relaxed">Define a new learning curriculum pathway and set metadata parameters.</p>
       </div>
 
-      <div className="clay-card !bg-[#F5F8FA]">
+      <div className="clay-card">
         <form onSubmit={handleCreate} className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div>

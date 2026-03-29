@@ -115,7 +115,7 @@ export default function AdminQuestionsPage() {
       </div>
 
       {/* Track selector */}
-      <div className="clay-card mb-8 flex flex-col sm:flex-row sm:items-center gap-4 bg-[#F5F8FA]">
+      <div className="clay-card mb-8 flex flex-col sm:flex-row sm:items-center gap-4">
          <label className="text-[#718096] text-sm font-bold whitespace-nowrap drop-shadow-sm">Target Specification:</label>
          <select
            value={selectedTrack}
@@ -147,7 +147,7 @@ export default function AdminQuestionsPage() {
 
           {/* Add question form */}
           {showForm && (
-            <div className="clay-card mb-8 bg-[#F5F8FA]">
+            <div className="clay-card mb-8">
               <div className="flex items-center gap-2 mb-6 text-[#2D3748] font-black border-b border-[#D1D9E6] pb-4 drop-shadow-sm text-lg">
                  <Database size={20} className="text-[#6C63FF] drop-shadow-sm" /> Define Execution Query
               </div>
@@ -216,7 +216,7 @@ export default function AdminQuestionsPage() {
           ) : (
             <div className="space-y-4">
               {questions.map((q, i) => (
-                <div key={q.id} className="clay-card bg-[#F5F8FA] flex flex-col lg:flex-row lg:items-start justify-between gap-6 hover:shadow-[3px_3px_8px_#c8d0e7,inset_-1px_-1px_3px_rgba(255,255,255,0.9)] transition-all group">
+                <div key={q.id} className="clay-card flex flex-col lg:flex-row lg:items-start justify-between gap-6 hover:shadow-[3px_3px_8px_#c8d0e7,inset_-1px_-1px_3px_rgba(255,255,255,0.9)] transition-all group">
                   <div className="flex-1">
                     <p className="text-[#2D3748] tracking-tight font-black mb-6 flex items-start gap-4 text-[15px] leading-relaxed drop-shadow-sm">
                       <span className="text-[#718096] bg-[#EAEFF5] px-2 py-1 rounded-md shadow-[inset_1px_1px_2px_rgba(255,255,255,0.8),inset_-1px_-1px_2px_rgba(0,0,0,0.05),1px_1px_2px_#c8d0e7] font-mono text-xs font-bold pt-0.5 mt-0.5">#{String(i + 1).padStart(2, '0')}</span>

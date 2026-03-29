@@ -35,7 +35,7 @@ export default async function AdminUsersPage() {
         <p className="text-[#718096] text-sm font-medium">Comprehensive index of platform candidates and root administrators.</p>
       </div>
 
-      <div className="clay-card !p-0 overflow-hidden bg-[#F5F8FA]">
+      <div className="clay-card !p-0 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
