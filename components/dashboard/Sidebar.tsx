@@ -27,8 +27,8 @@ export default function Sidebar() {
   }
 
   return (
-    <aside className="w-64 bg-[#0D0D14] border-r border-[#242430] min-h-[100dvh] flex flex-col relative z-40">
-      <div className="p-6 border-b border-[#242430]">
+    <aside className="w-64 bg-[#F5F8FA] border-r border-[#D1D9E6] min-h-[100dvh] flex flex-col relative z-40">
+      <div className="p-6 border-b border-[#D1D9E6]">
         <Logo />
       </div>
 
@@ -39,25 +39,25 @@ export default function Sidebar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-colors duration-200 ${
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm transition-all duration-200 ${
                 isActive
-                  ? 'bg-[#6C63FF]/10 text-[#6C63FF] border-l-2 border-[#6C63FF]'
-                  : 'text-[#9090A8] hover:text-[#F0F0FF] hover:bg-[#1A1A24] border-l-2 border-transparent'
+                  ? 'bg-[#EAEFF5] text-[#6C63FF] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.02),inset_-2px_-2px_4px_rgba(255,255,255,0.8)]'
+                  : 'text-[#4A5568] hover:text-[#2D3748] hover:bg-[#EAEFF5] border-transparent'
               }`}
             >
-              <div className={isActive ? 'text-[#6C63FF]' : 'text-[#5A5A70]'}>
+              <div className={isActive ? 'text-[#6C63FF]' : 'text-[#718096]'}>
                  {link.icon}
               </div>
-              <span className={isActive ? 'font-semibold' : 'font-medium'}>{link.label}</span>
+              <span className={isActive ? 'font-bold' : 'font-medium'}>{link.label}</span>
             </Link>
           )
         })}
       </nav>
 
-      <div className="p-4 border-t border-[#242430]">
+      <div className="p-4 border-t border-[#D1D9E6]">
         <button
           onClick={handleLogout}
-          className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold text-[#FF4D6A] hover:bg-[#FF4D6A]/10 transition-colors"
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold text-[#FF4D6A] hover:bg-[#FF4D6A]/10 transition-colors"
         >
           <LogOut size={16} />
           Logout

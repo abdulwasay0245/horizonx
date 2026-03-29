@@ -12,59 +12,59 @@ export default async function AdminTracksPage() {
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 border-b border-[#242430] pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 border-b border-[#D1D9E6] pb-6">
         <div>
-          <h2 className="text-3xl font-black text-[#F0F0FF] tracking-tight mb-2">Track Configurations</h2>
-          <p className="text-[#9090A8] text-sm">Curate and oversee active learning curriculums.</p>
+          <h2 className="text-3xl font-black text-[#2D3748] tracking-tight mb-2 drop-shadow-sm">Track Configurations</h2>
+          <p className="text-[#718096] text-sm font-medium">Curate and oversee active learning curriculums.</p>
         </div>
         <Link
           href="/admin/tracks/new"
-          className="btn-primary !px-6 flex items-center gap-2"
+          className="clay-btn-primary py-3 px-6 flex items-center gap-2 text-[13px] font-black"
         >
-          <Plus size={16} /> Define New Track
+          <Plus size={18} /> Define New Track
         </Link>
       </div>
 
-      <div className="vercel-card !p-0 overflow-hidden">
+      <div className="clay-card !p-0 overflow-hidden bg-[#F5F8FA]">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-[#0A0A0F] border-b border-[#242430]">
-                <th className="text-[#5A5A70] font-mono text-[10px] font-bold uppercase tracking-widest px-8 py-4">Field / Curriculum</th>
-                <th className="text-[#5A5A70] font-mono text-[10px] font-bold uppercase tracking-widest px-8 py-4">Difficulty Vector</th>
-                <th className="text-[#5A5A70] font-mono text-[10px] font-bold uppercase tracking-widest px-8 py-4">Status</th>
-                <th className="text-[#5A5A70] font-mono text-[10px] font-bold uppercase tracking-widest px-8 py-4">Initialization Date</th>
-                <th className="text-[#5A5A70] font-mono text-[10px] font-bold uppercase tracking-widest px-8 py-4 text-right">Actions</th>
+              <tr className="bg-[#EAEFF5] border-b border-[#D1D9E6] shadow-[inset_1px_1px_2px_rgba(255,255,255,0.8),inset_-1px_-1px_2px_rgba(0,0,0,0.02)]">
+                <th className="text-[#718096] font-mono text-[10px] font-bold uppercase tracking-widest px-8 py-4">Field / Curriculum</th>
+                <th className="text-[#718096] font-mono text-[10px] font-bold uppercase tracking-widest px-8 py-4">Difficulty Vector</th>
+                <th className="text-[#718096] font-mono text-[10px] font-bold uppercase tracking-widest px-8 py-4">Status</th>
+                <th className="text-[#718096] font-mono text-[10px] font-bold uppercase tracking-widest px-8 py-4">Initialization Date</th>
+                <th className="text-[#718096] font-mono text-[10px] font-bold uppercase tracking-widest px-8 py-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#242430]">
+            <tbody className="divide-y divide-[#D1D9E6]">
               {tracks?.map((track) => (
-                <tr key={track.id} className="hover:bg-[#1A1A24] transition-colors group">
+                <tr key={track.id} className="hover:bg-[#EAEFF5] transition-colors group">
                   <td className="px-8 py-5">
-                    <span className="text-[#F0F0FF] font-semibold tracking-tight">{track.fields?.name || 'Unknown Protocol'}</span>
+                    <span className="text-[#2D3748] font-bold tracking-tight">{track.fields?.name || 'Unknown Protocol'}</span>
                   </td>
                   <td className="px-8 py-5">
-                    <span className={`badge-${track.level?.toLowerCase() || 'beginner'}`}>
+                    <span className={`badge-${track.level?.toLowerCase() || 'beginner'} shadow-[inset_1px_1px_2px_rgba(255,255,255,0.6)] px-3 py-1 font-bold`}>
                       {track.level} Spec
                     </span>
                   </td>
                   <td className="px-8 py-5">
-                    <span className={`inline-flex items-center gap-1.5 font-mono text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider border ${
+                    <span className={`inline-flex items-center gap-1.5 font-mono text-[10px] font-black px-2.5 py-1.5 rounded-lg uppercase tracking-wider ${
                       track.is_active
-                        ? 'bg-[#00C896]/10 text-[#00C896] border-[#00C896]/20'
-                        : 'bg-[#FF4D6A]/10 text-[#FF4D6A] border-[#FF4D6A]/20'
+                        ? 'bg-[#EAFBF5] text-[#00C896] shadow-[inset_1px_1px_3px_rgba(0,200,150,0.1),inset_-1px_-1px_3px_rgba(255,255,255,0.9)]'
+                        : 'bg-[#FFF0F2] text-[#FF4D6A] shadow-[inset_1px_1px_3px_rgba(255,100,100,0.1),inset_-1px_-1px_3px_rgba(255,255,255,0.9)]'
                     }`}>
-                      <div className={`w-1.5 h-1.5 rounded-full ${track.is_active ? 'bg-[#00C896]' : 'bg-[#FF4D6A]'}`} />
+                      <div className={`w-2 h-2 rounded-full shadow-inner ${track.is_active ? 'bg-[#00C896]' : 'bg-[#FF4D6A]'}`} />
                       {track.is_active ? 'Live' : 'Draft'}
                     </span>
                   </td>
-                  <td className="px-8 py-5 text-[#5A5A70] font-mono text-xs font-bold uppercase tracking-widest">
+                  <td className="px-8 py-5 text-[#A0AEC0] font-mono text-[11px] font-black uppercase tracking-widest">
                     {new Date(track.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                   </td>
                   <td className="px-8 py-5 text-right">
                     <Link
                       href={`/tracks/${track.id}`}
-                      className="btn-secondary !px-4 !py-1.5 text-[10px] font-mono tracking-widest uppercase inline-flex items-center gap-2 group-hover:border-[#6C63FF]/30 group-hover:text-[#F0F0FF]"
+                      className="clay-btn-secondary py-2 px-4 text-[10px] font-mono tracking-widest uppercase inline-flex items-center gap-2 font-black"
                     >
                       Inspect <ArrowRight size={14} />
                     </Link>
@@ -75,11 +75,11 @@ export default async function AdminTracksPage() {
           </table>
           
           {(!tracks || tracks.length === 0) && (
-            <div className="text-center py-16 text-[#5A5A70] flex flex-col items-center">
-              <div className="w-12 h-12 bg-[#1A1A24] text-[#5A5A70] border border-[#242430] rounded-xl flex items-center justify-center mb-4">
-                 <Library size={24} />
+            <div className="text-center py-16 text-[#A0AEC0] flex flex-col items-center bg-[#F5F8FA]">
+              <div className="w-14 h-14 bg-[#EAEFF5] text-[#718096] rounded-2xl flex items-center justify-center mb-4 shadow-[inset_1px_1px_3px_rgba(255,255,255,0.8),inset_-1px_-1px_3px_rgba(0,0,0,0.05),2px_2px_4px_#c8d0e7]">
+                 <Library size={28} className="drop-shadow-sm" />
               </div>
-              <p className="text-sm">No track schemas identified in the database.</p>
+              <p className="text-[15px] font-bold">No track schemas identified in the database.</p>
             </div>
           )}
         </div>

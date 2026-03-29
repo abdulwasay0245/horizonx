@@ -21,15 +21,15 @@ export default async function CertificatePage({ params }: { params: Promise<{ id
   const trackName = `${fieldName} — ${certificate.tracks?.level || ''}`
 
   return (
-    <div className="min-h-[100dvh] bg-[#0A0A0F] flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-[100dvh] bg-[#EAEFF5] flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto w-full animate-fade-in-up">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="w-16 h-16 bg-[#6C63FF]/10 text-[#6C63FF] rounded-xl flex items-center justify-center border border-[#6C63FF]/20 mx-auto mb-6">
-             <FileCode size={32} />
+        <div className="text-center mb-16">
+          <div className="w-20 h-20 bg-[#EAEFF5] text-[#6C63FF] rounded-2xl flex items-center justify-center border-none shadow-[inset_1px_1px_3px_rgba(255,255,255,0.8),inset_-1px_-1px_3px_rgba(0,0,0,0.05),2px_2px_4px_#c8d0e7] mx-auto mb-8">
+             <FileCode size={40} className="drop-shadow-sm" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-black text-[#F0F0FF] tracking-tight mb-2">Technical Audit Record</h1>
-          <p className="text-[#9090A8] text-sm font-medium font-mono">Empirical proof of execution verified by HorizonX infrastructure layer.</p>
+          <h1 className="text-4xl md:text-5xl font-black text-[#2D3748] tracking-tight mb-4 drop-shadow-sm">Technical Audit Record</h1>
+          <p className="text-[#718096] text-[15px] font-bold font-mono">Empirical proof of execution verified by HorizonX infrastructure layer.</p>
         </div>
 
         <CertificateActions
@@ -42,12 +42,12 @@ export default async function CertificatePage({ params }: { params: Promise<{ id
         />
 
         {/* Back link */}
-        <div className="text-center mt-12 pt-8 border-t border-[#242430] max-w-lg mx-auto">
+        <div className="text-center mt-16 pt-10 border-t border-[#D1D9E6] max-w-lg mx-auto">
           <Link
             href="/dashboard"
-            className="text-[#5A5A70] hover:text-[#F0F0FF] text-sm font-semibold transition-colors flex items-center justify-center gap-2"
+            className="inline-flex items-center justify-center gap-3 text-[#A0AEC0] hover:text-[#2D3748] text-[15px] font-black transition-colors bg-[#F5F8FA] px-6 py-3 rounded-xl shadow-[inset_1px_1px_3px_rgba(255,255,255,0.8),inset_-1px_-1px_3px_rgba(0,0,0,0.02),2px_2px_5px_#c8d0e7]"
           >
-            <ArrowLeft size={16} /> Return to Dashboard
+            <ArrowLeft size={18} /> Return to Dashboard
           </Link>
         </div>
       </div>

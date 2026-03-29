@@ -66,22 +66,22 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
   if (recentFail) {
     const retryAt = new Date(new Date(recentFail.attempted_at).getTime() + 24 * 60 * 60 * 1000)
     return (
-      <div className="min-h-[100dvh] bg-[#0A0A0F] flex flex-col items-center justify-center p-6 text-center">
-        <div className="vercel-card max-w-xl w-full flex flex-col items-center">
-          <div className="w-16 h-16 bg-[#FFB340]/10 border border-[#FFB340]/20 text-[#FFB340] rounded-xl flex items-center justify-center mb-6">
-            <Hourglass size={32} />
+      <div className="min-h-[100dvh] bg-[#EAEFF5] flex flex-col items-center justify-center p-6 text-center">
+        <div className="clay-card max-w-xl w-full flex flex-col items-center bg-[#F5F8FA]">
+          <div className="w-20 h-20 bg-[#F5F8FA] shadow-[inset_2px_2px_4px_rgba(255,255,255,0.8),inset_-2px_-2px_4px_rgba(0,0,0,0.05),3px_3px_8px_#c8d0e7] text-[#FFB340] rounded-3xl flex items-center justify-center mb-8">
+            <Hourglass size={36} className="drop-shadow-sm" />
           </div>
-          <h2 className="text-2xl font-bold text-[#F0F0FF] mb-4">Come Back Tomorrow</h2>
-          <p className="text-[#9090A8] text-sm mb-8 leading-relaxed max-w-md mx-auto">
+          <h2 className="text-3xl font-black text-[#2D3748] mb-4 drop-shadow-sm">Come Back Tomorrow</h2>
+          <p className="text-[#718096] text-[15px] font-medium mb-8 leading-relaxed max-w-md mx-auto">
             You didn't pass the previous quiz. You can retake it after:
           </p>
-          <div className="bg-[#1A1A24] border border-[#242430] rounded-xl p-4 mb-8 inline-block">
-             <p className="text-[#F0F0FF] font-mono text-sm tracking-wider font-bold">
+          <div className="bg-[#EAEFF5] rounded-xl p-5 mb-10 shadow-[inset_1px_1px_3px_rgba(0,0,0,0.05),inset_-1px_-1px_3px_rgba(255,255,255,1)] inline-block">
+             <p className="text-[#4A5568] font-mono text-sm tracking-wider font-bold">
                {retryAt.toLocaleString(undefined, { dateStyle: 'long', timeStyle: 'short' })}
              </p>
           </div>
-          <Link href={`/tracks/${id}`} className="btn-secondary text-sm inline-flex items-center gap-2">
-            <ArrowLeft size={16} /> Back to Track
+          <Link href={`/tracks/${id}`} className="clay-btn-secondary px-8 py-3.5 text-sm inline-flex items-center gap-2 font-bold">
+            <ArrowLeft size={18} /> Back to Track
           </Link>
         </div>
       </div>
@@ -100,7 +100,7 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
   const shuffled = [...(questions || [])].sort(() => Math.random() - 0.5)
 
   return (
-    <div className="min-h-[100dvh] bg-[#0A0A0F] py-12 px-4 sm:px-6 flex flex-col items-center justify-center">
+    <div className="min-h-[100dvh] bg-[#EAEFF5] py-12 px-4 sm:px-6 flex flex-col items-center justify-center">
        <div className="w-full max-w-3xl mx-auto z-10 animate-fade-in-up">
          <TestClient
            questions={shuffled}

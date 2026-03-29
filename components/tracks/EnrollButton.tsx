@@ -39,9 +39,9 @@ export default function EnrollButton({ trackId }: { trackId: string }) {
     <button
       onClick={handleEnroll}
       disabled={loading}
-      className="btn-primary w-full py-4 mb-10 text-lg flex items-center justify-center gap-3 glow-primary"
+      className="clay-btn-primary w-full py-5 rounded-2xl mb-10 text-lg flex items-center justify-center gap-3 drop-shadow-sm font-black"
     >
-      <Server size={20} />
+      <Server size={24} />
       {loading ? 'Enrolling...' : 'Enroll in This Track'}
     </button>
   )

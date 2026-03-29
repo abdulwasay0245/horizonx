@@ -131,38 +131,38 @@ export default function TestClient({ questions, trackId, userId }: TestClientPro
   ]
 
   const timerColor = timeLeft < 300 
-    ? 'text-[#FF4D6A] bg-[#FF4D6A]/5 border-[#FF4D6A]/20' 
-    : 'text-[#00C896] bg-[#00C896]/5 border-[#00C896]/20'
+    ? 'text-[#FF4D6A] bg-[#FFF0F2] shadow-[inset_1px_1px_3px_rgba(255,100,100,0.1),inset_-1px_-1px_3px_rgba(255,255,255,0.9)]' 
+    : 'text-[#00C896] bg-[#EAFBF5] shadow-[inset_1px_1px_3px_rgba(0,200,150,0.1),inset_-1px_-1px_3px_rgba(255,255,255,0.9)]'
 
   return (
     <div className="w-full">
       {/* Progress Line */}
-      <div className="fixed top-0 left-0 right-0 h-1 bg-[#1A1A24] z-50">
+      <div className="fixed top-0 left-0 right-0 h-2 bg-[#EAEFF5] z-50 shadow-[inset_1px_1px_3px_rgba(0,0,0,0.1)]">
          <div 
-           className="h-full bg-gradient-to-r from-[#6C63FF] to-[#00D4FF] transition-all duration-300"
+           className="h-full bg-[#6C63FF] transition-all duration-300 shadow-[inset_1px_1px_2px_rgba(255,255,255,0.4)]"
            style={{ width: `${((current + 1) / questions.length) * 100}%` }}
          />
       </div>
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-6 border-b border-[#242430] gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-6 border-b border-[#D1D9E6] gap-4">
         <div>
-          <h2 className="text-xl font-bold text-[#F0F0FF] tracking-tight mb-1 flex items-center gap-2">
-            <ShieldCheck size={20} className="text-[#6C63FF]" /> Certification Exam
+          <h2 className="text-xl font-black text-[#2D3748] tracking-tight mb-2 flex items-center gap-2 drop-shadow-sm">
+            <ShieldCheck size={24} className="text-[#6C63FF] drop-shadow-sm" /> Technical Evaluation
           </h2>
-          <p className="text-[#5A5A70] font-mono text-[10px] uppercase font-bold tracking-widest">
+          <p className="text-[#718096] font-mono text-[10px] uppercase font-bold tracking-widest bg-[#F5F8FA] px-3 py-1.5 rounded-lg inline-block shadow-[inset_1px_1px_2px_rgba(255,255,255,0.8),inset_-1px_-1px_2px_rgba(0,0,0,0.02),1px_1px_3px_#c8d0e7]">
             Query {current + 1} of {questions.length}
           </p>
         </div>
         
-        <div className={`px-4 py-2 rounded-lg border font-mono text-xl font-bold tracking-tight flex items-center gap-2 ${timerColor}`}>
-          <Clock size={16} /> {formatTime(timeLeft)}
+        <div className={`px-5 py-2.5 rounded-xl font-mono text-xl font-black tracking-tight flex items-center gap-2 drop-shadow-sm ${timerColor}`}>
+          <Clock size={20} /> {formatTime(timeLeft)}
         </div>
       </div>
 
       {/* Main Question Card w/ max-w-2xl per spec */}
       <div className="w-full max-w-2xl mx-auto">
-        <h3 className="text-[#F0F0FF] text-xl font-semibold mb-8 leading-relaxed tracking-tight">
+        <h3 className="text-[#2D3748] text-2xl font-black mb-8 leading-relaxed tracking-tight drop-shadow-sm">
           {question.question}
         </h3>
         
@@ -173,20 +173,20 @@ export default function TestClient({ questions, trackId, userId }: TestClientPro
               <button
                 key={opt.key}
                 onClick={() => setSelected(opt.key)}
-                className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-200 flex items-center gap-4 ${
+                className={`w-full text-left px-5 py-5 rounded-2xl transition-all duration-200 flex items-center gap-4 ${
                   isSelected
-                    ? 'border-l-4 border-l-[#6C63FF] border-y-[#242430] border-r-[#242430] bg-[#6C63FF]/5 text-[#F0F0FF]'
-                    : 'border-[#242430] bg-[#111118] text-[#9090A8] hover:border-[#3A3A50] hover:text-[#F0F0FF]'
+                    ? 'bg-[#F5F8FA] text-[#6C63FF] shadow-[inset_2px_2px_5px_rgba(255,255,255,0.9),inset_-2px_-2px_5px_rgba(0,0,0,0.05),3px_3px_8px_#c8d0e7] font-black scale-[1.01]'
+                    : 'bg-[#EAEFF5] text-[#4A5568] shadow-[inset_2px_2px_5px_rgba(0,0,0,0.02),inset_-2px_-2px_5px_rgba(255,255,255,0.9)] hover:shadow-[3px_3px_6px_#c8d0e7,inset_-1px_-1px_2px_rgba(255,255,255,0.8)] font-bold'
                 }`}
               >
-                <span className={`flex items-center justify-center w-7 h-7 rounded-md border font-mono text-xs font-bold shrink-0 transition-colors ${
+                <span className={`flex items-center justify-center w-8 h-8 rounded-lg font-mono text-xs font-black shrink-0 transition-all ${
                    isSelected 
-                     ? 'border-[#6C63FF] bg-[#6C63FF] text-white'
-                     : 'border-[#242430] bg-[#1A1A24] text-[#5A5A70]'
+                     ? 'bg-[#6C63FF] text-white shadow-[inset_1px_1px_2px_rgba(255,255,255,0.4)]'
+                     : 'bg-[#F5F8FA] text-[#A0AEC0] shadow-[inset_1px_1px_3px_rgba(0,0,0,0.05),inset_-1px_-1px_3px_rgba(255,255,255,1)]'
                 }`}>
                    {opt.key.toUpperCase()}
                 </span>
-                <span className="text-sm font-medium pt-[2px]">
+                <span className="text-[15px] pt-[2px]">
                    {opt.label}
                 </span>
               </button>
@@ -196,22 +196,22 @@ export default function TestClient({ questions, trackId, userId }: TestClientPro
       </div>
 
       {/* Navigation Footer */}
-      <div className="flex flex-col sm:flex-row items-center justify-between border-t border-[#242430] pt-6 mt-12 max-w-2xl mx-auto gap-4">
-        <p className="text-[#5A5A70] font-mono text-[10px] uppercase tracking-widest font-bold">
+      <div className="flex flex-col sm:flex-row items-center justify-between border-t border-[#D1D9E6] pt-8 mt-12 max-w-2xl mx-auto gap-4">
+        <p className="text-[#718096] font-mono text-[10px] uppercase tracking-widest font-bold bg-[#F5F8FA] px-3 py-1.5 rounded-lg shadow-[inset_1px_1px_2px_rgba(255,255,255,0.8),inset_-1px_-1px_2px_rgba(0,0,0,0.02),1px_1px_3px_#c8d0e7]">
           {totalAnswered} of {questions.length} Queries Resolved
         </p>
         <button
           onClick={handleNext}
           disabled={!selected || submitting}
-          className="btn-primary flex items-center justify-center gap-2 w-full sm:w-auto"
+          className="clay-btn-primary flex items-center justify-center gap-3 w-full sm:w-auto py-3.5 px-8"
         >
           {submitting ? 'Verifying Output...' : isLast ? (
             <>
-              Confirm & Evaluate <Check size={16} />
+              Confirm & Evaluate <Check size={18} />
             </>
           ) : (
              <>
-               Proceed <ArrowRight size={16} />
+               Proceed <ArrowRight size={18} />
              </>
           )}
         </button>

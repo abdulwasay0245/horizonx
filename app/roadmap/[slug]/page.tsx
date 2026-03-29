@@ -90,69 +90,69 @@ export default async function RoadmapPage({ params }: { params: Promise<{ slug: 
     .eq('track_id', track.id)
 
   const color = fieldColors[field.name] ?? '#6C63FF'
-  const icon = fieldIcons[field.name] ?? <BookOpen size={28} className="text-[#F0F0FF]" />
+  const icon = fieldIcons[field.name] ?? <BookOpen size={28} className="text-[#6C63FF]" />
 
   return (
-    <div className="min-h-screen bg-[#0A0A0F]">
+    <div className="min-h-screen bg-[#EAEFF5]">
 
       {/* Top nav */}
-      <nav className="border-b border-[#242430] px-6 py-4 flex items-center justify-between max-w-4xl mx-auto">
+      <nav className="border-b border-[#D1D9E6] px-6 py-4 flex items-center justify-between max-w-4xl mx-auto">
         <Link
           href="/#tracks"
-          className="flex items-center gap-2 text-sm font-medium text-[#9090A8] hover:text-[#F0F0FF] transition-colors"
+          className="flex items-center gap-2 text-[13px] font-black text-[#718096] hover:text-[#2D3748] transition-colors"
         >
           <ArrowLeft size={16} />
           All Tracks
         </Link>
         <Link
           href="/register"
-          className="btn-primary flex items-center gap-2 !px-5 !py-2 text-sm"
+          className="clay-btn-primary flex items-center gap-2 !px-5 !py-2.5 text-[13px] font-black"
         >
-          Start Learning <ArrowRight size={14} />
+          Start Learning <ArrowRight size={16} />
         </Link>
       </nav>
 
-      <main className="max-w-4xl mx-auto px-6 py-12">
+      <main className="max-w-4xl mx-auto px-6 py-16">
 
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-14">
           {/* Icon + level */}
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-5 mb-8">
             <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center border"
-              style={{ background: `${color}15`, borderColor: `${color}30` }}
+              className="w-20 h-20 rounded-2xl flex items-center justify-center border-none shadow-[inset_1px_1px_3px_rgba(255,255,255,0.8),inset_-1px_-1px_3px_rgba(0,0,0,0.05),3px_3px_8px_#c8d0e7]"
+              style={{ background: '#F5F8FA' }}
             >
               {icon}
             </div>
             <div>
               <span
-                className="text-xs font-mono uppercase tracking-widest font-bold"
+                className="text-[11px] font-mono uppercase tracking-[0.2em] font-black drop-shadow-sm"
                 style={{ color }}
               >
                 {track.level} track
               </span>
-              <h1 className="text-3xl md:text-4xl font-black text-[#F0F0FF] tracking-tight mt-0.5">
+              <h1 className="text-4xl md:text-5xl font-black text-[#2D3748] tracking-tight mt-1 drop-shadow-sm">
                 {field.name}
               </h1>
             </div>
           </div>
 
-          <p className="text-[#9090A8] text-base leading-relaxed max-w-2xl">
+          <p className="text-[#718096] text-[17px] font-medium leading-relaxed max-w-2xl">
             {track.description}
           </p>
 
           {/* Stats row */}
-          <div className="flex flex-wrap gap-6 mt-6">
-            <div className="flex items-center gap-2 text-sm text-[#9090A8]">
-              <span className="font-mono font-bold text-[#F0F0FF]">{tasks?.length ?? 0}</span>
+          <div className="flex flex-wrap gap-8 mt-8">
+            <div className="flex items-center gap-2.5 text-[15px] text-[#A0AEC0] font-bold">
+              <span className="font-mono font-black text-[#2D3748] text-xl drop-shadow-sm">{tasks?.length ?? 0}</span>
               hands-on tasks
             </div>
-            <div className="flex items-center gap-2 text-sm text-[#9090A8]">
-              <span className="font-mono font-bold text-[#F0F0FF]">{questionCount ?? 0}</span>
+            <div className="flex items-center gap-2.5 text-[15px] text-[#A0AEC0] font-bold">
+              <span className="font-mono font-black text-[#2D3748] text-xl drop-shadow-sm">{questionCount ?? 0}</span>
               quiz questions
             </div>
-            <div className="flex items-center gap-2 text-sm text-[#9090A8]">
-              <span className="font-mono font-bold text-[#00C896]">Free</span>
+            <div className="flex items-center gap-2.5 text-[15px] text-[#A0AEC0] font-bold">
+              <span className="font-mono font-black text-[#00C896] text-xl drop-shadow-sm">Free</span>
               forever
             </div>
           </div>
@@ -160,32 +160,31 @@ export default async function RoadmapPage({ params }: { params: Promise<{ slug: 
 
         {/* Divider */}
         <div
-          className="h-px mb-10 rounded-full"
+          className="h-1 mb-14 rounded-full"
           style={{ background: `linear-gradient(to right, ${color}50, transparent)` }}
         />
 
         {/* Task roadmap */}
-        <div className="mb-12">
-          <h2 className="text-xl font-bold text-[#F0F0FF] mb-6 tracking-tight">
+        <div className="mb-16">
+          <h2 className="text-2xl font-black text-[#2D3748] mb-8 tracking-tight drop-shadow-sm">
             Track Roadmap
           </h2>
 
           <div className="relative">
             {/* Vertical connector line */}
             <div
-              className="absolute left-[23px] top-8 bottom-8 w-px"
+              className="absolute left-[27px] top-8 bottom-8 w-1"
               style={{ background: `linear-gradient(to bottom, ${color}60, transparent)` }}
             />
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               {tasks?.map((task, index) => (
-                <div key={task.id} className="flex gap-5 group">
+                <div key={task.id} className="flex gap-6 group">
                   {/* Step circle */}
                   <div
-                    className="w-12 h-12 shrink-0 rounded-full flex items-center justify-center font-mono text-sm font-bold border-2 z-10 transition-all duration-300"
+                    className="w-14 h-14 shrink-0 rounded-[1.2rem] flex items-center justify-center font-mono text-[15px] font-black border-none z-10 shadow-[inset_1px_1px_3px_rgba(255,255,255,0.9),inset_-1px_-1px_3px_rgba(0,0,0,0.05),2px_2px_4px_#c8d0e7] transition-all duration-300"
                     style={{
-                      background: `${color}15`,
-                      borderColor: `${color}40`,
+                      background: '#F5F8FA',
                       color,
                     }}
                   >
@@ -193,11 +192,11 @@ export default async function RoadmapPage({ params }: { params: Promise<{ slug: 
                   </div>
 
                   {/* Task card */}
-                  <div className="flex-1 vercel-card !p-5 group-hover:border-[#3A3A50] transition-colors duration-200">
-                    <h3 className="text-[#F0F0FF] font-semibold text-base mb-1 leading-snug">
+                  <div className="flex-1 clay-card !bg-[#F5F8FA] !p-6 hover:shadow-[4px_4px_12px_#c8d0e7,inset_-2px_-2px_4px_rgba(255,255,255,0.9)] transition-all duration-300 transform group-hover:-translate-y-0.5">
+                    <h3 className="text-[#2D3748] font-black text-lg mb-2 leading-snug drop-shadow-sm">
                       {task.title}
                     </h3>
-                    <p className="text-[#9090A8] text-sm leading-relaxed line-clamp-2">
+                    <p className="text-[#718096] text-[15px] font-medium leading-relaxed line-clamp-2">
                       {task.description}
                     </p>
                   </div>
@@ -205,33 +204,33 @@ export default async function RoadmapPage({ params }: { params: Promise<{ slug: 
               ))}
 
               {/* Final step — Quiz */}
-              <div className="flex gap-5">
+              <div className="flex gap-6">
                 <div
-                  className="w-12 h-12 shrink-0 rounded-full flex items-center justify-center border-2 z-10"
-                  style={{ background: '#FFB34015', borderColor: '#FFB34040', color: '#FFB340' }}
+                  className="w-14 h-14 shrink-0 rounded-[1.2rem] flex items-center justify-center border-none z-10 shadow-[inset_1px_1px_3px_rgba(255,255,255,0.9),inset_-1px_-1px_3px_rgba(0,0,0,0.05),2px_2px_4px_#c8d0e7]"
+                  style={{ background: '#FFF8EB', color: '#FFB340' }}
                 >
-                  <CheckCircle2 size={20} />
+                  <CheckCircle2 size={24} className="drop-shadow-sm" />
                 </div>
-                <div className="flex-1 vercel-card !p-5 border-[#FFB340]/20">
-                  <h3 className="text-[#FFB340] font-semibold text-base mb-1">
+                <div className="flex-1 clay-card !bg-[#FFF8EB] !p-6 border border-[#FFF8EB]">
+                  <h3 className="text-[#FFB340] font-black text-lg mb-2 drop-shadow-sm">
                     Final Quiz — {questionCount} Questions
                   </h3>
-                  <p className="text-[#9090A8] text-sm leading-relaxed">
+                  <p className="text-[#A0AEC0] text-[15px] font-bold leading-relaxed">
                     Complete all tasks first, then take the quiz to earn your verified skill badge. You need 50% or above to pass.
                   </p>
                 </div>
               </div>
 
               {/* Locked — Badge */}
-              <div className="flex gap-5 opacity-60">
-                <div className="w-12 h-12 shrink-0 rounded-full flex items-center justify-center border-2 border-[#242430] bg-[#1A1A24] z-10 text-[#5A5A70]">
-                  <Lock size={18} />
+              <div className="flex gap-6 opacity-80">
+                <div className="w-14 h-14 shrink-0 rounded-[1.2rem] flex items-center justify-center border-none bg-[#EAEFF5] z-10 text-[#A0AEC0] shadow-[inset_1px_1px_3px_rgba(255,255,255,0.8),inset_-1px_-1px_3px_rgba(0,0,0,0.05),2px_2px_4px_#c8d0e7]">
+                  <Lock size={22} className="drop-shadow-sm" />
                 </div>
-                <div className="flex-1 vercel-card !p-5 border-dashed">
-                  <h3 className="text-[#5A5A70] font-semibold text-base mb-1">
+                <div className="flex-1 clay-card !bg-[#EAEFF5] border-dashed border-2 border-[#D1D9E6] !p-6 shadow-[inset_2px_2px_5px_rgba(255,255,255,0.9),inset_-2px_-2px_5px_rgba(0,0,0,0.03)]">
+                  <h3 className="text-[#A0AEC0] font-black text-lg mb-2 drop-shadow-sm">
                     Skill Badge Unlocked
                   </h3>
-                  <p className="text-[#5A5A70] text-sm leading-relaxed">
+                  <p className="text-[#A0AEC0] text-[15px] font-bold leading-relaxed">
                     Pass the quiz to earn your verified badge and add it to your public profile.
                   </p>
                 </div>
@@ -242,26 +241,25 @@ export default async function RoadmapPage({ params }: { params: Promise<{ slug: 
 
         {/* CTA block */}
         <div
-          className="rounded-2xl border p-8 text-center"
-          style={{ background: `${color}08`, borderColor: `${color}25` }}
+          className="clay-card !bg-[#F5F8FA] p-10 text-center relative overflow-hidden"
         >
-          <h3 className="text-2xl font-black text-[#F0F0FF] mb-3 tracking-tight">
+          <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ background: color }}></div>
+          <h3 className="text-3xl font-black text-[#2D3748] mb-4 tracking-tight drop-shadow-sm relative z-10">
             Ready to start?
           </h3>
-          <p className="text-[#9090A8] mb-6 max-w-md mx-auto text-sm leading-relaxed">
+          <p className="text-[#718096] mb-8 max-w-md mx-auto text-[15px] font-medium leading-relaxed relative z-10">
             Create a free account to begin this track, submit your tasks, and earn your verified skill badge.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
             <Link
               href="/register"
-              className="btn-primary flex items-center gap-2 px-8 py-3 text-sm font-bold"
-              style={{ boxShadow: `0 0 30px ${color}30` }}
+              className="clay-btn-primary flex items-center gap-2 px-8 py-3.5 text-[15px] font-black"
             >
-              Create Free Account <ArrowRight size={16} />
+              Create Free Account <ArrowRight size={18} />
             </Link>
             <Link
               href="/login"
-              className="btn-secondary flex items-center gap-2 px-8 py-3 text-sm"
+              className="clay-btn-secondary flex items-center gap-2 px-10 py-3.5 text-[15px] font-black bg-[#F5F8FA]"
             >
               Sign In
             </Link>

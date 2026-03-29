@@ -33,7 +33,7 @@ export default function CertificateActions({
     try {
       const imgData = await toPng(certRef.current, {
         cacheBust: true,
-        backgroundColor: '#0A0A0F',
+        backgroundColor: '#F5F8FA',
         pixelRatio: 2
       })
 
@@ -68,15 +68,15 @@ export default function CertificateActions({
         <button
           onClick={handleDownloadPDF}
           disabled={downloading}
-          className="btn-secondary w-full sm:w-1/2 flex items-center justify-center gap-2 py-4 text-sm"
+          className="clay-btn-secondary w-full sm:w-1/2 flex items-center justify-center gap-2 py-4 text-[13px] font-black tracking-wide"
         >
           {downloading ? (
             <>
-              <Loader2 size={16} className="animate-spin" /> Extracting Vector...
+              <Loader2 size={18} className="animate-spin" /> Extracting Vector...
             </>
           ) : (
              <>
-               <Download size={16} /> Download Verification (PDF)
+               <Download size={18} /> Download Verification (PDF)
              </>
           )}
         </button>

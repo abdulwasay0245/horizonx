@@ -58,37 +58,37 @@ export default async function TrackDetailPage({ params }: { params: Promise<{ id
 
   return (
     <div className="max-w-4xl mx-auto py-8 lg:py-12 px-6">
-      <Link href="/tracks" className="inline-flex items-center gap-2 text-sm font-semibold text-[#9090A8] hover:text-[#F0F0FF] transition-colors mb-8">
+      <Link href="/tracks" className="inline-flex items-center gap-2 text-sm font-bold text-[#718096] hover:text-[#6C63FF] transition-colors mb-8 bg-[#F5F8FA] px-4 py-2 rounded-xl shadow-[inset_1px_1px_3px_rgba(255,255,255,0.8),inset_-1px_-1px_3px_rgba(0,0,0,0.02),2px_2px_4px_#c8d0e7]">
         <ArrowLeft size={16} /> All Tracks
       </Link>
 
-      <div className="mb-12 border-b border-[#242430] pb-8">
+      <div className="mb-12 border-b border-[#D1D9E6] pb-8">
         <div className="flex flex-wrap items-center gap-4 mb-4">
-          <h2 className="text-3xl md:text-4xl font-black text-[#F0F0FF] tracking-tight">{track.fields?.name}</h2>
-          <span className={`badge-${track.level.toLowerCase()}`}>
+          <h2 className="text-3xl md:text-4xl font-black text-[#2D3748] tracking-tight drop-shadow-sm">{track.fields?.name}</h2>
+          <span className={`badge-clay-primary`}>
             {track.level}
           </span>
         </div>
-        <p className="text-[#9090A8] text-lg leading-relaxed max-w-2xl">{track.description}</p>
+        <p className="text-[#718096] text-lg leading-relaxed max-w-2xl font-medium">{track.description}</p>
       </div>
 
       {isEnrolled && (
-        <div className="vercel-card mb-10 overflow-hidden relative group border-[#6C63FF]/20 shadow-[0_0_15px_rgba(108,99,255,0.05)]">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-6 border-b border-[#242430]">
+        <div className="clay-card mb-10 overflow-hidden relative group">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-6 border-b border-[#D1D9E6]">
             <div>
-              <span className="text-[#F0F0FF] font-semibold text-lg tracking-tight block mb-1">Your Progress</span>
-              <span className="text-[#5A5A70] font-mono text-[10px] uppercase tracking-widest font-bold">
+              <span className="text-[#2D3748] font-black text-lg tracking-tight block mb-2">Your Progress</span>
+              <span className="text-[#718096] font-mono text-[10px] uppercase tracking-widest font-bold bg-[#F5F8FA] px-3 py-1.5 rounded-lg shadow-[inset_1px_1px_2px_rgba(255,255,255,0.8),inset_-1px_-1px_2px_rgba(0,0,0,0.02),1px_1px_3px_#c8d0e7]">
                 {completedCount} / {totalCount} tasks completed
               </span>
             </div>
-            <span className="text-5xl font-black font-mono text-[#6C63FF] tracking-tighter mt-4 sm:mt-0">
+            <span className="text-5xl font-black font-mono text-[#6C63FF] tracking-tighter mt-4 sm:mt-0 drop-shadow-sm">
                {progress}%
             </span>
           </div>
           
-          <div className="w-full bg-[#1A1A24] rounded-full h-1.5 mb-8 overflow-hidden">
+          <div className="w-full bg-[#EAEFF5] rounded-full h-2 mb-8 shadow-[inset_1px_1px_3px_rgba(0,0,0,0.1),inset_-1px_-1px_3px_rgba(255,255,255,1)] overflow-hidden">
             <div
-              className="bg-gradient-to-r from-[#6C63FF] to-[#00D4FF] h-full rounded-full transition-all duration-1000 ease-out"
+              className="bg-[#6C63FF] h-full rounded-full transition-all duration-1000 ease-out shadow-[inset_1px_1px_2px_rgba(255,255,255,0.4)]"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -96,20 +96,20 @@ export default async function TrackDetailPage({ params }: { params: Promise<{ id
           {allTasksDone && !testAttempt && (
             <Link
               href={`/tracks/${id}/test`}
-              className="btn-primary w-full flex justify-center items-center gap-2 glow-primary"
+              className="clay-btn-primary w-full flex justify-center items-center gap-3 py-4 text-[15px]"
             >
-              <Target size={18} /> Take the Final Quiz
+              <Target size={20} /> Take the Final Quiz
             </Link>
           )}
 
           {testAttempt && (
-            <div className="mt-8 bg-[#00C896]/5 border border-[#00C896]/20 rounded-xl p-6 relative flex flex-col items-center">
-              <div className="w-12 h-12 bg-[#00C896]/10 rounded-full flex items-center justify-center text-[#00C896] shadow-sm mb-4">
-                 <Award size={24} />
+            <div className="mt-8 bg-[#EAEFF5] shadow-[inset_2px_2px_5px_rgba(255,255,255,0.8),inset_-2px_-2px_5px_rgba(0,0,0,0.02),3px_3px_6px_#c8d0e7] rounded-2xl p-8 relative flex flex-col items-center">
+              <div className="w-14 h-14 bg-[#F5F8FA] rounded-2xl flex items-center justify-center text-[#00C896] shadow-[inset_2px_2px_4px_rgba(255,255,255,0.8),inset_-2px_-2px_4px_rgba(0,0,0,0.05),2px_2px_6px_#c8d0e7] mb-6">
+                 <Award size={28} className="drop-shadow-sm" />
               </div>
-              <p className="text-[#00C896] font-semibold text-lg mb-1">Quiz Passed! 🎉</p>
-              <p className="text-[#9090A8] text-sm mb-6">Your Score: <span className="font-mono text-[#F0F0FF] font-bold">{testAttempt.score}%</span></p>
-              <Link href="/dashboard/certificates" className="btn-secondary px-6 py-2 text-sm text-[#F0F0FF]">
+              <p className="text-[#2D3748] font-black text-xl mb-2">Quiz Passed! 🎉</p>
+              <p className="text-[#4A5568] text-[15px] mb-8 font-medium">Your Score: <span className="font-mono text-[#6C63FF] font-black bg-[#F5F8FA] px-2 py-1 rounded-lg ml-1 drop-shadow-sm">{testAttempt.score}%</span></p>
+              <Link href="/dashboard/certificates" className="clay-btn-secondary px-8 py-3 text-[15px]">
                 View My Badge
               </Link>
             </div>

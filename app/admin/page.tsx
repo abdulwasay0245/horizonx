@@ -40,9 +40,9 @@ export default async function AdminPage() {
 
   return (
     <div>
-      <div className="mb-10 border-b border-[#242430] pb-6">
-        <h2 className="text-3xl font-black text-[#F0F0FF] tracking-tight mb-2">Platform Telemetry</h2>
-        <p className="text-[#9090A8] text-sm">Real-time engagement metrics and infrastructure health.</p>
+      <div className="mb-10 border-b border-[#D1D9E6] pb-6">
+        <h2 className="text-3xl font-black text-[#2D3748] tracking-tight mb-2 drop-shadow-sm">Platform Telemetry</h2>
+        <p className="text-[#718096] text-sm font-medium">Real-time engagement metrics and infrastructure health.</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

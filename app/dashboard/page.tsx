@@ -65,12 +65,12 @@ export default async function DashboardPage() {
   return (
     <div className="max-w-6xl mx-auto py-8">
       {/* Header */}
-      <div className="mb-12 border-b border-[#242430] pb-8">
-        <h2 className="text-3xl font-black text-[#F0F0FF] tracking-tight mb-2">
+      <div className="mb-12 border-b border-[#D1D9E6] pb-8">
+        <h2 className="text-3xl font-black text-[#2D3748] tracking-tight mb-2 drop-shadow-sm">
           Overview
         </h2>
-        <p className="text-[#9090A8] text-sm">
-          Welcome back, <span className="text-[#F0F0FF] font-semibold">{profile?.name?.split(' ')[0]}</span>. Here's your progress so far.
+        <p className="text-[#718096] text-sm font-medium">
+          Welcome back, <span className="text-[#6C63FF] font-bold">{profile?.name?.split(' ')[0]}</span>. Here's your progress so far.
         </p>
       </div>
 
@@ -85,22 +85,22 @@ export default async function DashboardPage() {
       {/* Active Tracks */}
       <div className="mb-16">
         <div className="flex items-center justify-between mb-6">
-           <h3 className="text-lg font-semibold text-[#F0F0FF] tracking-tight">My Active Tracks</h3>
-           <Link href="/tracks" className="text-sm font-semibold text-[#9090A8] hover:text-[#F0F0FF] transition-colors flex items-center gap-1">
+           <h3 className="text-lg font-black text-[#2D3748] tracking-tight">My Active Tracks</h3>
+           <Link href="/tracks" className="text-sm font-bold text-[#718096] hover:text-[#6C63FF] transition-colors flex items-center gap-1">
               Browse all <ArrowRight size={14} />
            </Link>
         </div>
         
         {enrollmentsWithProgress.length === 0 ? (
-          <div className="vercel-card text-center !py-16 border-dashed bg-transparent shadow-none flex flex-col items-center">
-            <div className="w-12 h-12 bg-[#1A1A24] border border-[#242430] rounded-xl flex items-center justify-center mb-6 text-[#5A5A70]">
-               <Target size={24} />
+          <div className="clay-card text-center !py-16 !shadow-none border-dashed !border-[#D1D9E6] bg-transparent flex flex-col items-center">
+            <div className="w-16 h-16 bg-[#F5F8FA] rounded-3xl flex items-center justify-center mb-6 text-[#718096] shadow-[inset_2px_2px_5px_rgba(255,255,255,0.8),inset_-2px_-2px_5px_rgba(0,0,0,0.02),3px_3px_6px_#c8d0e7]">
+               <Target size={28} />
             </div>
-            <h4 className="text-[#F0F0FF] font-semibold mb-2">No active tracks</h4>
-            <p className="text-[#5A5A70] text-sm mb-6 max-w-sm mx-auto">
+            <h4 className="text-[#2D3748] font-bold mb-2">No active tracks</h4>
+            <p className="text-[#718096] text-sm mb-6 max-w-sm mx-auto font-medium">
                Enroll in your first track to start learning.
             </p>
-            <Link href="/tracks" className="btn-secondary text-sm px-6 py-2">
+            <Link href="/tracks" className="clay-btn-secondary text-sm px-6 py-3">
               Browse Tracks
             </Link>
           </div>
@@ -125,34 +125,34 @@ export default async function DashboardPage() {
       {certificates && certificates.length > 0 && (
         <div className="mb-12">
           <div className="flex items-center justify-between mb-6">
-             <h3 className="text-lg font-semibold text-[#F0F0FF] tracking-tight">My Skill Badges</h3>
-             <Link href="/dashboard/certificates" className="text-sm font-semibold text-[#9090A8] hover:text-[#F0F0FF] transition-colors flex items-center gap-1">
+             <h3 className="text-lg font-black text-[#2D3748] tracking-tight">My Skill Badges</h3>
+             <Link href="/dashboard/certificates" className="text-sm font-bold text-[#718096] hover:text-[#6C63FF] transition-colors flex items-center gap-1">
                 View all <ArrowRight size={14} />
              </Link>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certificates.slice(0, 3).map((cert) => (
-              <div key={cert.id} className="vercel-card group flex flex-col justify-between hover:border-[#6C63FF]/50">
+              <div key={cert.id} className="clay-card-interactive group flex flex-col justify-between">
                 <div>
-                  <div className="flex justify-between items-start mb-6 pb-6 border-b border-[#242430]">
-                     <div className="w-10 h-10 bg-[#FFB340]/10 rounded-xl flex items-center justify-center text-[#FFB340] border border-[#FFB340]/20">
-                       <AwardIcon size={20} />
+                  <div className="flex justify-between items-start mb-6 pb-6 border-b border-[#D1D9E6]">
+                     <div className="w-12 h-12 bg-[#F5F8FA] shadow-[inset_2px_2px_4px_rgba(255,255,255,0.8),inset_-2px_-2px_4px_rgba(0,0,0,0.05),2px_2px_6px_#c8d0e7] rounded-2xl flex items-center justify-center text-[#FFB340]">
+                       <AwardIcon size={24} />
                      </div>
-                     <span className="text-[#6C63FF] font-black font-mono text-3xl tracking-tighter">{cert.score}%</span>
+                     <span className="text-[#6C63FF] font-black font-mono text-3xl tracking-tighter drop-shadow-sm">{cert.score}%</span>
                   </div>
-                  <h4 className="text-[#F0F0FF] font-semibold mb-1 truncate text-lg">
+                  <h4 className="text-[#2D3748] font-black mb-1 truncate text-lg">
                      Skill Badge
                   </h4>
-                  <p className="text-[#5A5A70] font-mono uppercase text-[10px] tracking-[0.08em] font-bold mb-6">
+                  <p className="text-[#718096] font-mono uppercase text-[10px] tracking-[0.08em] font-bold mb-6">
                     Issued {new Date(cert.issued_at).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}
                   </p>
                 </div>
                 <Link
                   href={`/certificate/${cert.id}`}
-                  className="w-full flex flex-col"
+                  className="w-full flex flex-col mt-4"
                 >
-                  <button className="btn-secondary w-full py-2 flex items-center justify-center gap-2 text-sm group-hover:border-[#6C63FF] group-hover:text-[#F0F0FF]">
+                  <button className="clay-btn-secondary w-full py-3 flex items-center justify-center gap-2 text-sm">
                     View Badge <ArrowRight size={16} />
                   </button>
                 </Link>

@@ -45,13 +45,13 @@ export default function TaskSubmitForm({
   }
 
   return (
-    <div className="vercel-card mt-8">
+    <div className="clay-card mt-8 bg-[#F5F8FA]">
       <div className="flex justify-between items-start mb-6">
         <div>
-           <h3 className="text-[#F0F0FF] font-black text-2xl tracking-tight mb-2 flex items-center gap-3">
-             <UploadCloud size={24} className="text-[#6C63FF]" /> Submit Your Work
+           <h3 className="text-[#2D3748] font-black text-2xl tracking-tight mb-2 flex items-center gap-3 drop-shadow-sm">
+             <UploadCloud size={28} className="text-[#6C63FF] drop-shadow-sm" /> Submit Your Work
            </h3>
-           <p className="text-[#9090A8] text-sm leading-relaxed max-w-md">
+           <p className="text-[#718096] text-[15px] font-medium leading-relaxed max-w-md">
              Paste your GitHub link, live URL, Figma link, or write your answer below.
            </p>
         </div>
@@ -65,14 +65,12 @@ export default function TaskSubmitForm({
             placeholder="https://github.com/yourusername/project"
             rows={5}
             required
-            className="vercel-input w-full resize-none font-mono text-sm leading-relaxed"
+            className="w-full bg-[#EAEFF5] border-none text-[#2D3748] rounded-2xl px-5 py-4 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] focus:ring-4 focus:ring-[#6C63FF]/30 outline-none transition-all placeholder:text-[#A0AEC0] font-mono font-medium resize-none leading-relaxed text-sm"
           />
-          <div className="absolute top-4 right-4 text-[10px] font-mono text-[#5A5A70] uppercase tracking-widest hidden sm:block">
-          </div>
         </div>
         
         {error && (
-          <div className="bg-[#FF4D6A]/10 border border-[#FF4D6A]/20 text-[#FF4D6A] px-5 py-4 rounded-xl text-sm font-medium animate-fade-in shadow-sm">
+          <div className="bg-[#FFF0F2] border border-[#FFCCD4] text-[#FF4D6A] px-5 py-4 rounded-xl text-sm font-bold animate-fade-in shadow-[inset_1px_1px_3px_rgba(255,255,255,1)]">
             {error}
           </div>
         )}
@@ -80,7 +78,7 @@ export default function TaskSubmitForm({
         <button
           type="submit"
           disabled={loading || !work.trim()}
-          className="btn-primary w-full py-4 text-sm uppercase tracking-widest font-bold font-mono"
+          className="clay-btn-primary w-full py-4 text-[13px] uppercase tracking-widest font-black font-mono mt-2"
         >
           {loading ? 'Submitting...' : 'Submit'}
         </button>

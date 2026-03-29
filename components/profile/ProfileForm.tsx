@@ -53,65 +53,65 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
     <form onSubmit={handleSave} className="space-y-8">
       {/* Name */}
       <div>
-        <label className="text-foreground text-sm font-semibold mb-2 block tracking-tight">Full Name</label>
+        <label className="block text-xs font-bold text-[#4A5568] mb-2 uppercase tracking-wide">Full Name</label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="glass-input w-full shadow-sm hover:bg-white dark:hover:bg-slate-900 focus:bg-white dark:focus:bg-slate-900 transition-colors"
+          className="w-full text-sm bg-[#EAEFF5] border-none text-[#2D3748] rounded-2xl px-4 py-3.5 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] focus:ring-4 focus:ring-[#6C63FF]/30 outline-none transition-all placeholder:text-[#A0AEC0] font-medium"
         />
       </div>
 
       {/* Bio */}
       <div>
-        <label className="text-foreground text-sm font-semibold mb-2 block tracking-tight">Bio</label>
+        <label className="block text-xs font-bold text-[#4A5568] mb-2 uppercase tracking-wide">Bio</label>
         <textarea
           value={bio}
           onChange={(e) => setBio(e.target.value)}
           rows={4}
           placeholder="Tell us about your technical journey..."
-          className="glass-input w-full resize-none shadow-sm hover:bg-white dark:hover:bg-slate-900 focus:bg-white dark:focus:bg-slate-900 transition-colors"
+          className="w-full text-sm bg-[#EAEFF5] border-none text-[#2D3748] rounded-2xl px-4 py-3.5 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] focus:ring-4 focus:ring-[#6C63FF]/30 outline-none transition-all placeholder:text-[#A0AEC0] font-medium resize-none"
         />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* LinkedIn */}
         <div>
-          <label className="text-foreground text-sm font-semibold mb-2 block tracking-tight">LinkedIn URL</label>
+          <label className="block text-xs font-bold text-[#4A5568] mb-2 uppercase tracking-wide">LinkedIn URL</label>
           <input
             type="url"
             value={linkedinUrl}
             onChange={(e) => setLinkedinUrl(e.target.value)}
             placeholder="https://linkedin.com/in/yourname"
-            className="glass-input w-full shadow-sm hover:bg-white dark:hover:bg-slate-900 focus:bg-white dark:focus:bg-slate-900 transition-colors"
+            className="w-full text-sm bg-[#EAEFF5] border-none text-[#2D3748] rounded-2xl px-4 py-3.5 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] focus:ring-4 focus:ring-[#6C63FF]/30 outline-none transition-all placeholder:text-[#A0AEC0] font-medium"
           />
         </div>
 
         {/* GitHub */}
         <div>
-          <label className="text-foreground text-sm font-semibold mb-2 block tracking-tight">GitHub URL</label>
+          <label className="block text-xs font-bold text-[#4A5568] mb-2 uppercase tracking-wide">GitHub URL</label>
           <input
             type="url"
             value={githubUrl}
             onChange={(e) => setGithubUrl(e.target.value)}
             placeholder="https://github.com/yourname"
-            className="glass-input w-full shadow-sm hover:bg-white dark:hover:bg-slate-900 focus:bg-white dark:focus:bg-slate-900 transition-colors"
+            className="w-full text-sm bg-[#EAEFF5] border-none text-[#2D3748] rounded-2xl px-4 py-3.5 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] focus:ring-4 focus:ring-[#6C63FF]/30 outline-none transition-all placeholder:text-[#A0AEC0] font-medium"
           />
         </div>
       </div>
 
       {/* Public toggle */}
-      <div className="flex items-center justify-between bg-slate-100/50 dark:bg-slate-800/50 rounded-2xl px-6 py-5 border border-slate-200/50 dark:border-slate-700/50 shadow-sm mt-8">
+      <div className="flex flex-col md:flex-row md:items-center justify-between bg-[#F5F8FA] rounded-3xl px-6 py-5 shadow-[inset_2px_2px_5px_rgba(255,255,255,0.8),inset_-2px_-2px_5px_rgba(0,0,0,0.02),3px_3px_6px_#c8d0e7] mt-8 gap-4">
         <div>
-          <p className="text-foreground font-bold tracking-tight mb-1">Public Profile</p>
-          <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-sm">Allow recruiters and others to see your profile, skills, and verified certificates.</p>
+          <p className="text-[#2D3748] font-black tracking-tight mb-1">Public Profile</p>
+          <p className="text-[#718096] text-sm leading-relaxed max-w-sm font-medium">Allow recruiters and others to see your profile, skills, and verified certificates.</p>
         </div>
         <button
           type="button"
           onClick={() => setIsPublic(!isPublic)}
-          className={`w-14 h-8 rounded-full transition-colors relative flex-shrink-0 focus:outline-none focus:ring-4 focus:ring-indigo-500/20 ${
-            isPublic ? 'bg-indigo-500 shadow-inner' : 'bg-slate-300 dark:bg-slate-600 shadow-inner'
+          className={`w-14 h-8 rounded-full transition-all relative flex-shrink-0 focus:outline-none focus:ring-4 focus:ring-[#6C63FF]/30 ${
+            isPublic ? 'bg-[#6C63FF] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2)]' : 'bg-[#D1D9E6] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.1)]'
           }`}
         >
           <span
@@ -123,18 +123,17 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
       </div>
 
       {/* Save button */}
-      <div className="flex items-center gap-4 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+      <div className="flex items-center gap-4 pt-6 border-t border-[#D1D9E6]">
         <button
           type="submit"
           disabled={saving}
-          className="glass-button px-8 py-3"
+          className="clay-btn-primary px-8 py-3.5"
         >
           {saving ? 'Saving...' : 'Save Changes'}
         </button>
         {saved && (
-          <span className="text-emerald-600 dark:text-emerald-400 text-sm font-bold flex items-center gap-2 animate-fade-in">
-            <span className="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center">✓</span>
-            Saved successfully
+          <span className="text-[#00C896] text-sm font-bold flex items-center gap-2 animate-fade-in bg-[#00C896]/10 px-3 py-1.5 rounded-xl">
+            ✓ Saved successfully
           </span>
         )}
       </div>

@@ -17,9 +17,9 @@ export default async function CertificatesPage() {
 
   return (
     <div className="max-w-6xl mx-auto py-8">
-      <div className="mb-12 border-b border-[#242430] pb-8">
-        <h2 className="text-3xl font-black text-[#F0F0FF] tracking-tight mb-2">Verification Matrix</h2>
-        <p className="text-[#9090A8] text-sm">Review generated technical reports and valid architectural skills.</p>
+      <div className="mb-12 border-b border-[#D1D9E6] pb-8">
+        <h2 className="text-3xl font-black text-[#2D3748] tracking-tight mb-2 drop-shadow-sm">Verification Matrix</h2>
+        <p className="text-[#718096] text-sm font-medium">Review generated technical reports and valid architectural skills.</p>
       </div>
 
       {certificates && certificates.length > 0 ? (
@@ -27,36 +27,36 @@ export default async function CertificatesPage() {
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="vercel-card flex flex-col group hover:border-[#6C63FF]/50 transition-colors"
+              className="clay-card-interactive flex flex-col group transition-colors"
             >
               <div className="flex justify-between items-start mb-6">
-                <div className="w-12 h-12 bg-[#6C63FF]/10 rounded-xl flex items-center justify-center text-[#6C63FF] border border-[#6C63FF]/20 relative overflow-hidden">
-                  <ShieldCheck size={24} className="relative z-10" />
+                <div className="w-14 h-14 bg-[#F5F8FA] rounded-2xl flex items-center justify-center text-[#6C63FF] shadow-[inset_2px_2px_4px_rgba(255,255,255,0.8),inset_-2px_-2px_4px_rgba(0,0,0,0.05),2px_2px_6px_#c8d0e7] relative overflow-hidden">
+                  <ShieldCheck size={28} className="relative z-10 drop-shadow-sm" />
                 </div>
               </div>
               
               <div>
-                <h4 className="text-[#F0F0FF] text-lg font-semibold tracking-tight mb-3 line-clamp-1">
+                <h4 className="text-[#2D3748] text-lg font-black tracking-tight mb-3 line-clamp-1">
                   {cert.tracks?.fields?.name || 'Unknown Track'}
                 </h4>
                 <div className="flex flex-col gap-3 mb-6">
-                  <span className={`badge-${cert.tracks?.level?.toLowerCase() || 'beginner'} self-start`}>
+                  <span className={`badge-[clay-primary] self-start`}>
                     {cert.tracks?.level || ''} Spec
                   </span>
-                  <span className="text-[#5A5A70] font-mono text-[10px] uppercase font-bold tracking-widest">
+                  <span className="text-[#718096] font-mono text-[10px] uppercase font-bold tracking-widest">
                     {new Date(cert.issued_at).toLocaleDateString('en-US', { month: 'short', year: 'numeric', day: 'numeric' })}
                   </span>
                 </div>
               </div>
 
-              <div className="mt-auto pt-6 border-t border-[#242430] flex items-end justify-between">
+              <div className="mt-auto pt-6 border-t border-[#D1D9E6] flex items-end justify-between">
                 <div>
-                  <p className="text-[#5A5A70] font-mono text-[10px] uppercase tracking-widest font-bold mb-1">Execution Metric</p>
-                  <span className="text-[#F0F0FF] font-black font-mono text-3xl tracking-tighter">{cert.score}%</span>
+                  <p className="text-[#718096] font-mono text-[10px] uppercase tracking-widest font-bold mb-1">Execution Metric</p>
+                  <span className="text-[#6C63FF] font-black font-mono text-4xl tracking-tighter drop-shadow-sm">{cert.score}%</span>
                 </div>
                 <Link
                   href={`/certificate/${cert.id}`}
-                  className="btn-secondary px-4 py-2 text-sm text-[#F0F0FF]"
+                  className="clay-btn-secondary px-5 py-2.5 text-sm"
                 >
                   Examine
                 </Link>
@@ -65,17 +65,17 @@ export default async function CertificatesPage() {
           ))}
         </div>
       ) : (
-        <div className="vercel-card text-center !py-16 border-dashed bg-transparent shadow-none flex flex-col items-center">
-          <div className="w-12 h-12 bg-[#1A1A24] border border-[#242430] rounded-xl flex items-center justify-center mb-6 text-[#5A5A70]">
-             <TerminalSquare size={24} />
+        <div className="clay-card text-center !py-16 !shadow-none border-dashed !border-[#D1D9E6] bg-transparent flex flex-col items-center">
+          <div className="w-16 h-16 bg-[#F5F8FA] shadow-[inset_2px_2px_5px_rgba(255,255,255,0.8),inset_-2px_-2px_5px_rgba(0,0,0,0.02),3px_3px_6px_#c8d0e7] rounded-3xl flex items-center justify-center mb-6 text-[#718096]">
+             <TerminalSquare size={28} />
           </div>
-          <h4 className="text-[#F0F0FF] font-semibold mb-2">No technical skills verified</h4>
-          <p className="text-[#5A5A70] text-sm mb-6 max-w-sm mx-auto">
+          <h4 className="text-[#2D3748] font-black mb-2 text-xl">No technical skills verified</h4>
+          <p className="text-[#718096] text-sm mb-8 max-w-md mx-auto font-medium">
             Complete an engineering curriculum and pass the final evaluation matrix to log unforgeable records.
           </p>
           <Link
             href="/tracks"
-            className="btn-secondary px-6 py-2 text-sm text-[#F0F0FF]"
+            className="clay-btn-primary px-8 py-3.5 text-sm"
           >
             Review Curriculums
           </Link>
